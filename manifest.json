@@ -1,0 +1,58 @@
+{ 
+  "description": "Passwortgenerator",
+	"manifest_version": 2,
+	"name": "PWGen",
+	"version": "0.1alpha",
+	"icons": {
+		"24": "icons/icon_b_24.png",
+		"32": "icons/icon_b_32.png",    
+		"48": "icons/icon_b_48.png",
+		"64": "icons/icon_b_64.png",
+		"256": "icons/icon_b_256.png"
+	},  
+  
+  "developer": {
+		"name": "DAUFahnder"
+	},
+  "background": {
+    "scripts": ["resource/api.js", "content/background/background.js"]
+  },
+  
+  "web_accessible_resources": ["icons/p.png"],
+  
+  "content_scripts": [
+    {
+      "js": ["resource/api.js", "content/injects/inject.js"],
+      "css": ["content/injects/inject.css"], 
+      "matches": ["<all_urls>"],
+      "all_frames": true
+    }
+  ],
+  
+	"permissions": [
+		"<all_urls>",
+    "activeTab",
+    "tabs",
+		"storage"
+	],
+
+  "browser_action": {
+		"default_icon": "icons/icon_b_48.png",
+		"default_title": "PWGen 0.1alpha",
+		"default_popup": "content/popup/popup.html",
+		"browser_style": false
+	},
+	
+  "options_ui": {
+    "page": "content/options/options.html",
+    "browser_style": false,
+    "open_in_tab": true
+  },
+  
+	"applications": {
+		"gecko": {
+			"id": "PWGen@daufahnder",
+			"strict_min_version": "60.0"
+		}
+	}
+}

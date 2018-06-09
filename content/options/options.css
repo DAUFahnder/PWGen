@@ -1,0 +1,146 @@
+body {
+  background: lightgrey;
+  text-align: center;
+  overflow-y: scroll;
+  clear: both;
+}
+
+#PWGenOptionsTabsHilfeSubmenu .PWGen_tablinksSub:hover {
+  background: silver;
+}
+
+#PWGenOptionsMenu .PWGen_tablinks :hover{
+  background: silver;
+  color: red;
+}
+
+#PWGenMenuspalteWrapper {
+  position:fixed;
+}
+a:link, a:visited, a:hover, a:active {
+  color: blue;
+  font-weight: bold;
+}
+ 
+#PWGenOptionsTabelle {
+  text-align: left;
+}
+#PWGenOptionsWrapper {
+  max-width: 60%;
+  margin-left: auto;
+  margin-right: auto;
+}
+#PWGenOptionsTabelle td {
+  vertical-align:top;  
+}
+#PWGenOptionsLogo {
+  vertical-align: text-top;
+}
+.PWGen_tab {
+  overflow: hidden;
+  text-align: right;
+  margin-right: -7px;
+}
+#PWGenOptionsInfos h1{
+  margin-top: 0px;
+  margin-bottom: 10px;    
+}
+#PWGenOptions_HinweisText {
+  max-width: 210px;
+  text-align: justify;
+  -moz-hyphens: auto;
+  -o-hyphens: auto;
+  -webkit-hyphens: auto;
+  -ms-hyphens: auto;
+  hyphens: auto;
+  background: white;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+#PWGenOptions_HinweisText hr {
+  width: 100%
+}
+#PWGenOptionsMenu div.PWGen_tablinks {
+  display: inline-block;
+  width: 126px;
+  text-align: left;
+  margin-top: 0px;
+  margin-bottom: 15px;
+  margin-left: 40px;
+  padding-left: 15px;
+  padding-right: 19px;
+  background-color: grey;
+  border: 1px solid black;
+  border-right: none;
+  outline: none;
+  cursor: pointer;
+  font-size: 29px;
+  font-weight: bold;  
+}
+#PWGenOptionsTabsHilfeSubmenu {
+  max-width: 100%;
+  padding-left: 15px;
+  background: grey;
+  margin-bottom: -10px;
+  padding-top: 13px;
+  margin-top: 3px;
+  display: none;
+  height: 25px;
+}
+#PWGenOptionsTabsHilfeSubmenu div.PWGen_tablinksSub {
+  float: left;
+  font-size: 25px;
+  margin: 1px;  
+  margin-bottom: -1px;
+  margin-left: -2px;
+  padding-left: 11px;
+  padding-right: 11px;
+  display: inline-block;
+  background: grey;
+  border: none;
+  cursor: pointer;
+}
+#PWGenOptionsTabsHilfeSubmenu div.PWGen_tablinksSub a {
+  text-decoration: none;
+  color: black;
+}
+   
+#PWGenOptionsMenu div.active {
+  background-color: silver;
+} 
+.PWGen_Tabcontent {        
+  background-color: silver;
+  max-width: 100%;
+  display: none;
+  padding-left: 15px;
+  padding-bottom: 20px;
+  border: 1px solid black;
+  padding-top: 0px;
+  margin-left: 222px;
+}
+div.PWGenOptionsTopLinks {
+  float: right;
+  margin-right: 10px;
+  margin-top: -40px;
+}
+
+.PWGen_TabcontentSub {        
+  background-color: gainsboro;
+  text-align: left;
+  display: none;
+  padding-left: 0px;
+  border: 1px solid black;
+  margin-top: 0px;
+  padding-top: 0px;
+}
+.PWGen_TabcontentSub div {
+  width: 180px;
+  font-size: 20px;
+  padding-left: 10px;
+  padding-right: 10px;
+  background: lightgrey;
+  margin-top: 0px;
+  margin-bottom: 12px;  
+}
+
+

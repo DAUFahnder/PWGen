@@ -1,0 +1,147 @@
+<!DOCTYPE HTML>
+
+<html lang="de-de">
+  <head>
+    <meta content="text/html; charset=utf-8" http-equiv="content-type">
+
+    <script src="../../resource/api.js"></script>
+    <script src="options.js"></script>
+    
+    <link rel="stylesheet" type="text/css" href="options.css"> 
+    
+    <title>PWGen - Optionen</title>
+  </head>
+<body>
+  <a id="OptionenTop"></a>
+  <div id="PWGenOptionsWrapper">
+  <table id="PWGenOptionsTabelle">
+    <tr>
+      <td rowspan="2">
+        <div id="PWGenMenuspalteWrapper">
+        <div id="PWGenOptionsInfos">
+          <img id="PWGenOptionsLogo" src="../../icons/icon_b_256_raw.png" height="200px" width="200px"><br/>
+          PasswortGeneral 0.1α | 9.6.2018<br/>
+           
+          <h1>Optionen</h1>        
+        </div>
+
+        <div id="PWGenOptionsMenu" class="PWGen_tab">
+          <div id="PWGenOptions_ButtonAllgemein" class="PWGen_tablinks" name="Allgemein">Allgemein</div><br/>
+          <div id="PWGenOptions_ButtonAutomatik" class="PWGen_tablinks" name="Automatik">Automatik</div><br/>
+          <div id="PWGenOptions_ButtonWebseiten" class="PWGen_tablinks" name="Webseiten">Webseiten</div><br/>
+          <div id="PWGenOptions_ButtonAussehen" class="PWGen_tablinks" name="Aussehen">Aussehen</div><br/>
+          <div id="PWGenOptions_ButtonHilfe" class="PWGen_tablinks" name="Hilfe">Hilfe</div><br/>          
+        </div>
+        <div id="PWGenOptions_HinweisText">
+        Bitte beachten:<br/>
+        Dies ist eine alpha-Version! Es können sich noch viele Dinge ändern, inclusive der eigentlichen Generator-Funktion. Daher erzeugte Passwörter unbedingt sichern!
+        </div>
+        </div>        
+      </td>
+      <td>  
+          <div id="PWGenOptionsTabsHilfeSubmenu" class="PWGen_Tabcontent">          
+            <div id="PWGenOptions_ButtonHilfeSubEinfuehrung" class="PWGen_tablinksSub" name="Einfuehrung"><a href="#Einführung">Einführung</a></div>
+            <div id="PWGenOptions_ButtonHilfeSubOptionen" class="PWGen_tablinksSub" name="Optionen"><a href="#OptionenSeite">Optionen</a></div>
+            <div id="PWGenOptions_ButtonHilfeSubFehler" class="PWGen_tablinksSub" name="Fehler"><a href="#Fehler">Fehler</a></div>
+            <div id="PWGenOptions_ButtonHilfeSubKontakt" class="PWGen_tablinksSub" name="Kontakt"><a href="#Kontakt">Kontakt</a></div>
+            <div id="PWGenOptions_ButtonHilfeSubFAQ" class="PWGen_tablinksSub" name="FAQ"><a href="#FAQ">F.A.Q.</a></div>
+          </div>
+      </td>
+    </tr>
+    <tr>
+      <td>  
+        <div id="PWGenOptionsTabsAllgemein" class="PWGen_Tabcontent">
+          <h1>Einführung:</h1>
+          <p>PWGen erzeugt einmalige Passwörter für jede Gelegenheit. Keine Zettelwirtschaft mehr, kein Überlegen welches Passwort denn nun in diesem oder jenem Forum verwendet wurde, ein Mausklick und das Passwort steht dort wo es hin gehört, im Passwort-Feld.<br/>
+          Dabei ist auch ein Export der benutzten Einstellungen sowie der Passwörter jederzeit möglich, zum Beispiel wenn man seinen Browser wechseln will und es dieses AddOn nicht für den Neuen gibt. Und als Lösung für den Notfall gibt es den eigentlichen Generator demnächst auch als eigenständige Webseite, damit man auch bei einem Totalschaden der eigenen Technik jederzeit relativ einfach an seine Passwörter kommt. Das die erzeugten Passwörter dabei nicht an andere übermittel werden, versteht sich von selbst.</p> 
+          <h2>Sicherheit der Passwörter</h2>
+          <p>Die Passwörter sind sicher, solange man niemandem verrät welche Vorgaben man benutzt um seine Passwörter erzeugen zu lassen. Es werden keinerlei Daten an den Programmierer oder andere Dritte übertragen. Sollte es einmal eine Lücke bei einem Anbieter geben, kostet es nur wenige Mausklicks um für diesen Anbieter ein neues Passwort zu erzeugen.<br/>
+          Die Passwörter sind letztlich ein Hash aus diversen Vorgaben durch den Nutzer. Dabei ist ein Hash so etwas wie eine Kombination aus einem Fingerabdruck und einer Queersumme. Mit anderen Worten: Nur weil man das Ergebnis kennt, kann man daraus nicht auf die ursprünglichen Daten schliessen. Das verhindert effektiv, dass, nur weil eine Seite gehackt wurde, der Datendieb auch automatisch die Passwörter für alle anderen Seiten bekommt.</p>
+          <h2>Verschiedene Anmeldungen pro Seite</h2>
+          <p>PWGen unterstützt die Möglichkeit, sich mit verschiedenen Identitäten an einer Seite anzumelden. Dabei bleibt es aber unauffällig: Nur wenn man in den Einstellungen explizit angibt, dass man auf einer Seite verschiedene Profile benutzt, fragt es bei der Passwortabfrage auch nach, welcher Name benutzt werden soll um das Passwort zu erzeugen. So bleibt es bequem für den normalen Benutzer, gibt dem Vielsurfer aber alle Möglichkeiten an die Hand selbst zu entscheiden.</p>
+          <p>Wer mehr über die Art und Weise der Passworterzeugung von PWGen erfahren möchte, kann dies in der Hilfe nachlesen.</p>
+          <h2>Danke an:</h2>
+          <p>
+           - Die vielen Helfer von www.camp-firefox.de!<br/>
+           - Die Ersteller der Scripte, die mir eine Menge Arbeit erspart haben. Dazu gehören:<br/>
+           &nbsp;&nbsp;&nbsp;&nbsp; ~ Jeff Mott für CryptoJS v3.1.2 (auf code.google.com/p/crypto-js)<br/>
+           &nbsp;&nbsp;&nbsp;&nbsp; ~ "Kirupa" (www.kirupa.com/about/whatiskirupa.htm) für sein äusserst praktisches Script:<br/> 
+           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;www.kirupa.com/html5/get_element_position_using_javascript.htm
+          </p>
+         </div>  
+ 
+        <div id="PWGenOptionsTabsAutomatik" class="PWGen_Tabcontent">
+          <h1>Automatik-Funktionen:</h1>
+          <h2>WIP ... WIP ... WIP</h2>
+          <p>Ich arbeite dran ... work in progress ... ich arbeite dran ... work in progress</p>
+        </div>  
+ 
+        <div id="PWGenOptionsTabsWebseiten" class="PWGen_Tabcontent">
+          <h1>Einstellungen zum Speicher...</h1>
+          <h2>WIP ... WIP ... WIP</h2>
+          <p>Ich arbeite dran ... work in progress ... ich arbeite dran ... work in progress</p>
+        </div>  
+ 
+        <div id="PWGenOptionsTabsAussehen" class="PWGen_Tabcontent">
+          <h1>Einstellungen zum Aussehen...</h1>
+          <h2>WIP ... WIP ... WIP</h2>
+          <p>Ich arbeite dran ... work in progress ... ich arbeite dran ... work in progress</p>
+         </div>  
+ 
+        <div id="PWGenOptionsTabsHilfe" class="PWGen_Tabcontent">
+          <h1>Hilfe</h1>
+          <h2>WIP ... WIP ... WIP</h2>
+          <p>Ich arbeite dran ... work in progress ... ich arbeite dran ... work in progress</p>
+
+
+          <a id="Einführung"></a>
+          <h2>Einführung:</h2>
+          <h3>WIP ... WIP ... WIP</h3>
+          <p>Ich arbeite dran ... work in progress ... ich arbeite dran ... work in progress</p>
+
+
+          <a id="ButtonsPopup"></a>
+          <h2>Hilfe zum Popup des AddOn-Buttons</h2>
+          <h3>WIP ... WIP ... WIP</h3>
+          <p>Ich arbeite dran ... work in progress ... ich arbeite dran ... work in progress</p>
+
+          <a id="OptionenSeite"></a>
+          <h2>Hilfe zu den Optionen</h2>
+
+          <a id="Fehler"></a>
+          <h3>Fehlermeldungen:</h3>
+          
+          <h4><a id="PWGenOptionsTabsHilfe_Fehlermeldungen_Scriptfehler" class="PWGenOptionsHilfeLinkziel">Scriptfehler</a></h4>
+          <p>Ich arbeite dran ... work in progress ... ich arbeite dran ... work in progress</p>
+          <div class="PWGenOptionsTopLinks"><a href="#OptionenTop">&uArr;</a></div>
+
+          <h4><a id="PWGenOptionsTabsHilfe_Fehlermeldungen_AddOnManipulationen" class="PWGenOptionsHilfeLinkziel">Keine AddOn-Manipulationen möglich</a></h4>
+          <p>Ich arbeite dran ... work in progress ... ich arbeite dran ... work in progress</p>
+          <div class="PWGenOptionsTopLinks"><a href="#OptionenTop">&uArr;</a></div>
+
+          <h4><a id="PWGenOptionsTabsHilfe_Fehlermeldungen__AboutManipulationen" class="PWGenOptionsHilfeLinkziel">Keine about:-Manipulationen möglich</a></h4>          
+          <p>Ich arbeite dran ... work in progress ... ich arbeite dran ... work in progress</p>
+          <div class="PWGenOptionsTopLinks"><a href="#OptionenTop">&uArr;</a></div>
+
+          <h4><a id="PWGenOptionsTabsHilfe_Fehlermeldungen_FehlendeDatenImPopup" class="PWGenOptionsHilfeLinkziel">~~~~ fehlt</a></h3>
+          <p>Ich arbeite dran ... work in progress ... ich arbeite dran ... work in progress</p>
+          <div class="PWGenOptionsTopLinks"><a href="#OptionenTop">&uArr;</a></div>
+
+          <a id="Kontakt"></a>
+          <h2>Kontakt bei Fragen oder Problemen:</h2>
+          <h3>WIP ... WIP ... WIP</h3>
+          <p>Ich arbeite dran ... work in progress ... ich arbeite dran ... work in progress</p>
+          <div class="PWGenOptionsTopLinks"><a href="#OptionenTop">&uArr;</a></div>
+
+          <a id="FAQ"></a>
+          <h2>F.A.Q. - häufig gestellte Fragen:</h2>
+          <h3>WIP ... WIP ... WIP</h3>
+          <p>Ich arbeite dran ... work in progress ... ich arbeite dran ... work in progress</p>
+          <div class="PWGenOptionsTopLinks"><a href="#OptionenTop">&uArr;</a></div>
+         </div>  
+       
+      </td>
+    </tr>
+  </table>
+  </div> 
+</body>
