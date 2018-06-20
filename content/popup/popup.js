@@ -1,6 +1,6 @@
 
-document.addEventListener('DOMContentLoaded', PWGeninit);    
-function PWGeninit(){
+document.addEventListener('DOMContentLoaded', PWGen_Popup_Init);    
+function PWGen_Popup_Init(){
  
   function PWGenlogTabs(tabs) {
     let tab = tabs[0];                                          // aktuelle Tab-Domain ins Popup schicken
@@ -8,9 +8,7 @@ function PWGeninit(){
     var url_strg = url.toString();
     if (url_strg.search("moz-extension://") != -1) {                 // aber nur, wenns keine Extension ist...
       inputs = document.getElementsByClassName("PWGenPopupInput");
-      console.log (inputs);
       for (i = 0; i < inputs.length; i++) {
-        console.log(inputs[i].id);
         getID(inputs[i].id).disabled = true;
       }
       getID("PWGenPopupHinweis").innerHTML = "-- Keine AddOn-Manipulationen möglich! --";
@@ -24,6 +22,22 @@ function PWGeninit(){
       }    
     
     };
+    if (url_strg.search("file://") != -1) {                 // aber nur, wenns keine Extension ist...
+      inputs = document.getElementsByClassName("PWGenPopupInput");
+      for (i = 0; i < inputs.length; i++) {
+        getID(inputs[i].id).disabled = true;
+      }
+      getID("PWGenPopupHinweis").innerHTML = "-- Keine File-Manipulationen möglich! --";
+      return;
+    }    
+    else {
+      getID("PWGenPopupHinweis").innerHTML = ""
+      inputs = document.getElementsByClassName("PWGenPopupInput");
+      for (i = 0; i < inputs.length; i++) {
+        getID(inputs[i].id).readOnly = false;
+      }    
+    
+    };    
     
     if (url.protocol == "about:") {                                 // und keine about:-Seite! 
       inputs = document.getElementsByClassName("PWGenPopupInput");
@@ -58,13 +72,13 @@ function PWGeninit(){
 
 function PWGenLoadHilfe() {
   browser.tabs.create({
-    url:browser.extension.getURL("content/options/options.html?ziel=Hilfe&Status="+PWGenPopupStatus)
+    url:browser.extension.getURL("content/options/options.html?ziel=Hilfe")
   });
   window.close();
 }
 function PWGenLoadOptions() {
   browser.tabs.create({
-    url:browser.extension.getURL("content/options/options.html")
+    url:browser.extension.getURL("content/options/options.html?ziel=Optionen")
   });
   window.close();  
 }
@@ -138,21 +152,12 @@ function PWGenCopyPw() {
 
 
 var PopupIconWarn = {
-  24: "../../icons/icon_r_24.png",
-  32: "../../icons/icon_r_32.png",
-  48: "../../icons/icon_r_48.png",
-  64: "../../icons/icon_r_64.png"
+  24: "../../icons/icon_red.svg"
 }
 var PopupIconNorm = {
-  24: "../../icons/icon_b_24.png",
-  32: "../../icons/icon_b_32.png",
-  48: "../../icons/icon_b_48.png",
-  64: "../../icons/icon_b_64.png"
+  24: "../../icons/icon_blue.svg"
 }
 var PopupIconOk = {
-  24: "../../icons/icon_g_24.png",
-  32: "../../icons/icon_g_32.png",
-  48: "../../icons/icon_g_48.png",
-  64: "../../icons/icon_g_64.png"
+  24: "../../icons/icon_green.svg"
 }
-var PWGenPopupStatus;
+

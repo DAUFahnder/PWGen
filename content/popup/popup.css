@@ -2,20 +2,16 @@
 body {
   width: auto;
   height: auto;  
-  background: silver;
   text-align: center;
   font-size: 18px;
-  padding: 5px;
-  margin: 2px;
-  margin-right: 6px;
-  border: 9px solid black;
-  border-radius: 15px;
-  border-style: double;
+  margin: 0px;
+  margin-right: 5px;
+  overflow: hidden;
 }
 img#PWGenPopupLogo {
   position: fixed;
-  left: 15px;
-  top: 15px;
+  left: 1px;
+  top: 1px;
 }
 #PWGenPopupTitel {
   position: relative;

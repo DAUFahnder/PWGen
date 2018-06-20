@@ -1,23 +1,91 @@
 
-
-  document.addEventListener('DOMContentLoaded', init);
+  document.addEventListener('DOMContentLoaded', PWGen_Options_Init);
   
-  function init (){
+
+  var PWGenDesign_Default = "body {\n color: black;\n}"
+  var PWGen_Init = false;  
+  
+  function PWGen_Options_Init(){
+    if (PWGen_Init == true) {return}; 
+    getID("TestButton").addEventListener("click", function(){console.log(getID("PWGenOptions_Einstellungen_InputMarkerMenuklick").value)});
     var i;
-    var tablinks = document.getElementsByClassName("PWGen_tablinks");
-    for (i = 0; i < tablinks.length; i++) {
-      getID(tablinks[i].id).addEventListener("click", function(e){PWGen_openTab(this.name, e)});   
+    var tablinks = document.getElementsByClassName("PWGen_tablinks");    
+    for (i = 0; i < tablinks.length; i++) {                                                           // Listener für die Options-Tabs
+      getID(tablinks[i].id).addEventListener("click", function(e){PWGen_openTab(this.name, e)});
     }
+
+    getID("PWGenOptions_Einstellungen_InputMarkerFarbe").addEventListener("change", function(){
+      PWGen_Config.Marker.Farbe = getID("PWGenOptions_Einstellungen_InputMarkerFarbe").value;
+      console.log (PWGen_Config.Marker.Farbe);
+      browser.storage.local.set({PWGen_Config});
+      console.log (PWGen_Config);            
+    });
+
+    getID("PWGenOptions_Einstellungen_InputProfiEinstellungen").addEventListener("change", function(){
+      if (getID("PWGenOptions_Einstellungen_InputProfiEinstellungen").value == "true"){
+        getID("PWGenOptions_ButtonAussehen").style.display = "inline-block";
+        var y = document.querySelectorAll('tr.PWGen_Profioptionen');                        // Profi-Optionen aktiv
+        for (var i = 0; i < y.length; i++) {
+          y[i].style.display='table-row';
+        };        
+      }
+      else {
+        getID("PWGenOptions_ButtonAussehen").style.display = "none";
+        var y = document.querySelectorAll('tr.PWGen_Profioptionen');                        // Profi-Optionen inaktiv
+        for (var i = 0; i < y.length; i++) {
+          y[i].style.display='none';
+        };
+      }                  
+    });
+    
+    getID("PWGenOptions_Einstellungen_InputMarkerAktiv").addEventListener("change", function(){
+      if (getID("PWGenOptions_Einstellungen_InputMarkerAktiv").value == "true"){
+        var y = document.querySelectorAll('tr.PWGen_Markeroptionen');                        // Marker aktiv
+        for (var i = 0; i < y.length; i++) {
+          y[i].style.display='table-row';
+        };        
+      }
+      else {
+        var y = document.querySelectorAll('tr.PWGen_Markeroptionen');                        // Marker inaktiv
+        for (var i = 0; i < y.length; i++) {
+          y[i].style.display='none';
+        };
+      }                  
+    });
+    
+    
+    getID("PWGenOptions_Einstellungen_InputMasterpasswort").addEventListener("change", function(){
+      if (getID("PWGenOptions_Einstellungen_InputMasterpasswort").value == "save"){
+        var y = document.querySelectorAll('tr.PWGen_Masterpasswort_Vorgabe');                        // Master-Passwort speichern ja
+        for (var i = 0; i < y.length; i++) {
+          y[i].style.display='table-row';
+        };        
+      }
+      else {
+        var y = document.querySelectorAll('tr.PWGen_Masterpasswort_Vorgabe');                        // Master-Passwort speichern nein
+        for (var i = 0; i < y.length; i++) {
+          y[i].style.display='none';
+        };
+      }                  
+    });
+    
+    // erstmal die eigentlich unsichtbaren Felder ausblenden:
+    getID("PWGenOptions_ButtonAussehen").style.display = "none";
+    var y = document.querySelectorAll('tr.PWGen_Profioptionen');                        
+    for (var i = 0; i < y.length; i++) {
+      y[i].style.display='none';
+    };
+    var y = document.querySelectorAll('tr.PWGen_Masterpasswort_Vorgabe');                       
+    for (var i = 0; i < y.length; i++) {
+      y[i].style.display='none';
+    }; 
     
     var Adresse = window.location.href; 
     var Adresse_Parameter = new URL(Adresse);                
     var Adresse_Paramater_Ziel = Adresse_Parameter.searchParams.get("ziel");                                     // auf URL-Parameter checken...
-    if (Adresse_Paramater_Ziel) {getID("PWGenOptions_Button"+Adresse_Paramater_Ziel).click();} // wenn URL-Parameter "Ziel" dann direkt laden
+    if (Adresse_Paramater_Ziel) {getID("PWGenOptions_Button"+Adresse_Paramater_Ziel).click();}                   // wenn URL-Parameter "Ziel" dann direkt laden
     else {getID("PWGenOptions_ButtonAllgemein").click();}
-    
-    // getID("PWGenSpeichern").addEventListener("click", PWGenAPI_Speichern);
-    // getID("PWGenLaden").addEventListener("click", PWGenAPI_Laden);
-     
+    PWGen_Init = true;
   }
   
   function PWGen_openTab(tabName, event) {
@@ -48,6 +116,3 @@
     }
     getID(event.target.id).classList.add("active");
 }
-
-
-// <div id="PWGenOptionsTabsHilfeSubmenu" class="PWGen_Tabcontent">

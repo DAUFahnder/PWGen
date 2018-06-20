@@ -1,0 +1,63 @@
+#PWGenOptions_WebseitenPopupButton {
+  position: fixed;
+  left: 50%;
+  top: 40%;
+  font-size: 40px;
+}
+
+#PWGenOptions_WebseitenPopup {
+  background: white;
+  text-align: center;
+  color: black;
+  font-size: 18px;
+  display: none;
+  min-height: 60%;                                                        
+  min-width: 60%;
+  max-width: 70%;
+  opacity: 0.98;
+  margin-left: auto;
+  margin-right: auto;  
+}
+#PWGenOptions_WebseitenPopupTabelleWrapper {
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  padding-bottom: 30px;
+}
+#PWGenOptions_WebseitenPopupTabelle {
+  margin-left: auto;
+  margin-right: auto;
+  border-collapse: collapse;
+}
+#PWGenOptions_WebseitenPopupTabelle td.Schalterhilfe {
+  text-align: justify;
+  padding-right: 7px;
+  padding-left: 7px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+#PWGenOptions_WebseitenPopupTabelle td.Schaltertitel {
+  text-align: right;
+}
+#PWGenOptions_WebseitenPopupTabelle td.Schaltertitel_Anmerkungen {
+  text-align: center;
+}
+#PWGenOptions_WebseitenPopupTabelle td.Schalterwert {
+  text-align: center;
+  padding-left: 3px;
+  padding-right: 3px;
+}
+#PWGenOptions_WebseitenPopupTabelle input, #PWGenOptions_WebseitenPopupTabelle select{
+  text-align: center;
+}
+.SelectJaNein {
+  width: 8ex;
+}
+input[type="number"] {
+  width: 8ex;
+}  
+#PWGenOptions_WebseitenPopupTabelleEinstellungen_InputAdresse {
+  width: 30ex;
+  font-size: 30px;
+  font-weight: bold;
+}

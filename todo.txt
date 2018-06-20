@@ -1,0 +1,17 @@
+Option :      - Wenn FF eine Webseite nicht automatisch befüllt anbieten das autocomplete="off" versuchen zu entfernen:
+                https://www.howtogeek.com/howto/internet/firefox/why-doesnt-autocomplete-always-work-in-firefox/
+                automagisch rauszuwerfen...
+          
+              - Domains von der Erkennung ausschliessen -> im Popup dann auch drauf hinweisen! (> Blacklist!)
+              - Domains mit mehreren Usernamen -> Nutzer wählen lassen bei Klick
+              Optionen: Befüllen bei hover, bei Klick ins Feld, bei Klick aufs Icon, Garnicht
+              und das Ganze auf Wunsch per Domain getrennt...
+          
+Popup:        - EINMAL Master-PW pro Sitzung abfragen, danach automatisch generieren wenn Username bekannt... eventuell direkt einfügen wenn möglich? 
+              ->Erkennung PW-Feld?
+              - var PWGenPopupStatus benutzen und in Options/Hilfe entsprechend zum Ziel springen und am besten noch markieren!
+
+Background:   - siehe Popup          
+          
+
+       

@@ -26,15 +26,16 @@ a:link, a:visited, a:hover, a:active {
   text-align: left;
 }
 #PWGenOptionsWrapper {
-  max-width: 60%;
+  width: 58%;
   margin-left: auto;
   margin-right: auto;
 }
 #PWGenOptionsTabelle td {
   vertical-align:top;  
-}
+} 
 #PWGenOptionsLogo {
   vertical-align: text-top;
+  margin-bottom: 20px;
 }
 .PWGen_tab {
   overflow: hidden;
@@ -42,8 +43,10 @@ a:link, a:visited, a:hover, a:active {
   margin-right: -7px;
 }
 #PWGenOptionsInfos h1{
+  font-size: 45px;
   margin-top: 0px;
-  margin-bottom: 10px;    
+  margin-bottom: 15px;
+  text-align: center;    
 }
 #PWGenOptions_HinweisText {
   max-width: 210px;
@@ -90,8 +93,7 @@ a:link, a:visited, a:hover, a:active {
 #PWGenOptionsTabsHilfeSubmenu div.PWGen_tablinksSub {
   float: left;
   font-size: 25px;
-  margin: 1px;  
-  margin-bottom: -1px;
+  margin: 1px;
   margin-left: -2px;
   padding-left: 11px;
   padding-right: 11px;
@@ -110,7 +112,8 @@ a:link, a:visited, a:hover, a:active {
 } 
 .PWGen_Tabcontent {        
   background-color: silver;
-  max-width: 100%;
+  min-width: 80%;
+  max-width: 80%;
   display: none;
   padding-left: 15px;
   padding-bottom: 20px;
@@ -123,7 +126,6 @@ div.PWGenOptionsTopLinks {
   margin-right: 10px;
   margin-top: -40px;
 }
-
 .PWGen_TabcontentSub {        
   background-color: gainsboro;
   text-align: left;
@@ -142,5 +144,15 @@ div.PWGenOptionsTopLinks {
   margin-top: 0px;
   margin-bottom: 12px;  
 }
-
-
+textarea {
+  margin-right: 8px;
+}
+.c {
+  text-align: center;
+}
+.l {
+  text-align: left;
+}
+.r {
+  text-align: right;
+}

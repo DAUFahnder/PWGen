@@ -2,13 +2,10 @@
   "description": "Passwortgenerator",
 	"manifest_version": 2,
 	"name": "PWGen",
-	"version": "0.1alpha",
+	"version": "0.5alpha",
 	"icons": {
-		"24": "icons/icon_b_24.png",
-		"32": "icons/icon_b_32.png",    
-		"48": "icons/icon_b_48.png",
-		"64": "icons/icon_b_64.png",
-		"256": "icons/icon_b_256.png"
+		"24": "icons/icon_blue.svg",
+		"32": "icons/icon_blue.svg"    
 	},  
   
   "developer": {
@@ -18,7 +15,7 @@
     "scripts": ["resource/api.js", "content/background/background.js"]
   },
   
-  "web_accessible_resources": ["icons/p.png"],
+  "web_accessible_resources": ["icons/marker_black.svg", "icons/marker_blue.svg", "icons/marker_green.svg", "icons/marker_pink.svg", "icons/marker_red.svg", "icons/marker_yellow.svg"],
   
   "content_scripts": [
     {
@@ -33,11 +30,12 @@
 		"<all_urls>",
     "activeTab",
     "tabs",
-		"storage"
+		"storage",
+    "contextMenus"    
 	],
 
   "browser_action": {
-		"default_icon": "icons/icon_b_48.png",
+		"default_icon": "icons/icon_blue.svg",
 		"default_title": "PWGen 0.1alpha",
 		"default_popup": "content/popup/popup.html",
 		"browser_style": false

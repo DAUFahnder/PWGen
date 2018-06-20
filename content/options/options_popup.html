@@ -1,0 +1,93 @@
+<!DOCTYPE HTML>
+
+<html lang="de-de">
+  <head>
+    <meta content="text/html; charset=utf-8" http-equiv="content-type">
+
+    <script src="../../resource/api.js"></script>
+    <script src="options.js"></script>
+    
+    <link rel="stylesheet" type="text/css" href="options_popup.css"> 
+    
+    <title>PWGen - Optionen - Popup</title>
+  </head>
+<body>
+
+<input id="PWGenOptions_WebseitenPopupButton" class="PWGenOptionsInput" type="button" value="ZEIGEN">
+<div id="PWGenOptions_WebseitenPopup">
+  <h1>PWGen - Einstellungen pro Internetseite vornehmen</h1>
+  <h3>Hier kann man pro Internetseite die allgemeingültigen Vorgaben den eigenen Wünschen entsprechend überschreiben.</h3>
+  <div id="PWGenOptions_WebseitenPopupTabelleWrapper">
+  
+  <table id="PWGenOptions_WebseitenPopupTabelle">
+  <tr>
+    <th colspan="3"><h2>Adresse: <input id="PWGenOptions_WebseitenPopupTabelleEinstellungen_InputAdresse" class="PWGenOptionsInput" type="text"></h2></th>
+    Bitte die Seite so angeben wie sie im Button-Menu erscheint.<br/> So wird aus [http://www.google.de] z.B. [www.google.de].
+  </tr>
+  <tr>
+  <td colspan="3"><hr></td>
+  </tr>
+  <tr>
+    <td class="Schaltertitel">PWGen&nbsp;aktiv:</td>
+    <td class="Schalterwert"><select id="PWGenOptions_WebseitenPopupTabelleEinstellungen_InputAdresseAktiv" class="SelectJaNein PWGenOptionsInput"><option selected="selected">ja</option><option>nein</option></select></td>
+    <td class="Schalterhilfe">"Nein" auswählen, wenn PWGen auf dieser Domain nicht aktiv sein soll.</td>
+  </tr>
+  <tr>
+    <td class="Schaltertitel">Benutzername:</td>
+    <td class="Schalterwert"><input id="PWGenOptions_WebseitenPopupTabelleEinstellungen_InputBenutzername" class="PWGenOptionsInput" type="text"></td>
+    <td class="Schalterhilfe">Bitte den Standard-Benutzernamen für diese Seite hinterlegen.</td>
+  </tr>
+  <tr>
+    <td class="Schaltertitel">Lfd.&nbsp;Nummer:</td>
+    <td class="Schalterwert"><input id="PWGenOptions_WebseitenPopupTabelleEinstellungen_InputNummer" class="PWGenOptionsInput" type="number"></td>
+    <td class="Schalterhilfe">Startpunkt für die laufende Nummer dieser Seite.<br/>Hinweis: Wird automatisch um 1 erhöht, wenn für diese Seite ein neues Passwort angefordert wird.</td>
+  </tr>
+  <tr>
+    <td class="Schaltertitel">Sonderzeichen:</td>
+    <td class="Schalterwert"><select id="PWGenOptions_WebseitenPopupTabelleEinstellungen_InputSonderzeichen" class="SelectJaNein PWGenOptionsInput"><option selected="selected">ja</option><option>nein</option></select></td>
+    <td class="Schalterhilfe">Angeben, ob im Passwort auf dieser Seite Sonderzeichen enthalten sein dürfen.</td>
+  </tr>
+  <tr>
+    <td class="Schaltertitel">Passwortlänge:</td>
+    <td class="Schalterwert"><select id="PWGenOptions_WebseitenPopupTabelleEinstellungen_InputPasswortlaenge" class="PWGenOptionsInput"><option>05</option><option selected="selected">10</option><option>15</option><option>20</option><option>25</option><option>30</option></td>
+    <td class="Schalterhilfe">Bitte die Passwortlänge dieser Seite angeben.</td>
+  </tr>
+  <tr>
+    <td class="Schaltertitel">Marker&nbsp;setzen:</td>
+    <td class="Schalterwert"><select id="PWGenOptions_WebseitenPopupTabelleEinstellungen_InputMarkerSetzen" class="SelectJaNein PWGenOptionsInput"><option selected="selected">ja</option><option>nein</option><option>sofort Passwort eingeben</option></select></td>
+    <td class="Schalterhilfe">Auf Wunsch wird kein Marker gesetzt, optional kann das Passwort immer sofort eingegeben werden.</td>
+  </tr>
+    <td class="Schaltertitel">Seiten&#8209;Passwort&nbsp;berechnen:</td>
+    <td class="Schalterwert"><select id="PWGenOptions_WebseitenPopupTabelleEinstellungen_InputPasswort" class="PWGenOptionsInput"><option>PWGen-Automatik nutzen</option><option>Vorgeben</option></select></td>
+    <td class="Schalterhilfe">Für bestehende Konten kann man hier die PW-Berechnung abschalten und das Passwort vorgeben. Dann sollte man aber im Firefox den Passwort-Speicher abschalten!</td>
+  </tr>
+  </tr>
+    <td class="Schaltertitel">Seiten&#8209;Passwort&nbsp;vorgeben:</td>
+    <td class="Schalterwert"><input id="PWGenOptions_WebseitenPopupTabelleEinstellungen_InputPasswortVorgabe" class="PWGenOptionsInput" type="password"></td>
+    <td class="Schalterhilfe">Passwort für bereits bestehende Konten vorgeben...</td>
+  </tr>
+  </tr>
+    <td class="Schaltertitel">Wiederholen:</td>
+    <td class="Schalterwert"><input id="PWGenOptions_WebseitenPopupTabelleEinstellungen_InputPasswortWiederholung" class="PWGenOptionsInput"></td>
+    <td class="Schalterhilfe">... und bitte wiederholen.</td>
+  </tr>
+  <tr>
+    <td colspan="3"><hr></td>
+  </tr>
+  <tr>
+    <td rowspan="2">
+      <input id="PWGenOptions_WebseitenPopupTabelleEinstellungen_ButtonSpeichern" type="button" value="Speichern"><br/>
+      <input id="PWGenOptions_WebseitenPopupTabelleEinstellungen_ButtonAbbrechen" type="button" value="Abbrechen"><br/>
+    
+    <td colspan="2" class="Schaltertitel_Anmerkungen">eigene Notizen zur Seite:</td>
+  </tr>
+  <tr>    
+    <td colspan="2" class="Schalterwert"><textarea id="PWGenOptions_WebseitenPopupTabelleEinstellungen_InputAnmerkungen" class="PWGenOptionsInput" cols="80" rows="5"></textarea></td>
+  </tr>
+  
+  </div>      
+  </table>
+</div>
+  
+</body>
+</html>
