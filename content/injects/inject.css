@@ -3,5 +3,35 @@ img#PWGenMarker {
   z-index: 9998;
   cursor: pointer;
 }
+div#PWGenLeiste {
+  position: fixed;
+  bottom: 2px;
+  z-index: 99999;
+  background: silver;
+  display: none;
+  padding-top: 5px;
+  font-size: 16px;
+  min-height: 5ex;
+  max-height: 29ex;
+  border: 1px solid black;
+}
+div#PWGenLeiste ul {
+  list-style-type: none;
+}
+div#PWGenLeiste li {
+  padding-left: 10px;
+  cursor: pointer;
+  display: block;
+  margin-right: 10px;     
+}
+
+div#PWGenLeiste a {
+  display: block;
+  cursor: pointer;
+}
+div#PWGenLeiste li :hover{
+  background: grey;
+  color: black;
+}
 
  

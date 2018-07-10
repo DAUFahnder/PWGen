@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 
 <html lang="de-de">
-  <head>
+  <Kopf>
     <meta content="text/html; charset=utf-8" http-equiv="content-type">
 
     <script src="../../resource/api.js"></script>
@@ -9,233 +9,290 @@
     
     <link rel="stylesheet" type="text/css" href="options.css"> 
     
-    <title>PWGen - Optionen</title>
-  </head>
+    <title>PWGen - options.html</title>
+  </Kopf>
 <body>
-  <a id="OptionenTop"></a>
-  <input id="Test">
-  <input id="TestButton" type="button" value=" TEST ">
-
-  <div id="PWGenOptionsWrapper">
-  <table id="PWGenOptionsTabelle">
-    <tr>
-      <td rowspan="2">
-        <div id="PWGenMenuspalteWrapper">
-          <div id="PWGenOptionsInfos">
-            <img id="PWGenOptionsLogo" src="../../icons/icon_blue_logo_aktuell.png" height="220px" width="220px"><br/>
-             
-                    
-          </div>
-
-          <div id="PWGenOptionsMenu" class="PWGen_tab">
-            <div id="PWGenOptions_ButtonAllgemein" class="PWGen_tablinks" name="Allgemein">Allgemein</div><br/>
-            <div id="PWGenOptions_ButtonOptionen" class="PWGen_tablinks" name="Optionen">Optionen</div><br/>
-            <div id="PWGenOptions_ButtonHilfe" class="PWGen_tablinks" name="Hilfe">Hilfe</div><br/>
-            <div id="PWGenOptions_ButtonAussehen" class="PWGen_tablinks" name="Aussehen">Aussehen</div><br/>          
-          </div>
-          <div id="PWGenOptions_HinweisText">
-            Bitte beachten:<br/>
-            Dies ist eine alpha-Version! Es können sich noch viele Dinge ändern, inclusive der eigentlichen Generator-Funktion. Daher erzeugte Passwörter unbedingt sichern! <br/>Sämtliche Optionen sind noch ohne Funktion!
-          </div>
-        </div>        
-      </td>
-      <td>  
-          <div id="PWGenOptionsTabsHilfeSubmenu" class="PWGen_Tabcontent">          
-            <div id="PWGenOptions_ButtonHilfeSubEinfuehrung" class="PWGen_tablinksSub" name="Einfuehrung"><a href="#Einführung">Einführung</a></div>
-            <div id="PWGenOptions_ButtonHilfeSubOptionen" class="PWGen_tablinksSub" name="Optionen"><a href="#OptionenSeite">Optionen</a></div>
-            <div id="PWGenOptions_ButtonHilfeSubFehler" class="PWGen_tablinksSub" name="Fehler"><a href="#Fehler">Fehler</a></div>
-            <div id="PWGenOptions_ButtonHilfeSubKontakt" class="PWGen_tablinksSub" name="Kontakt"><a href="#Kontakt">Kontakt</a></div>
-            <div id="PWGenOptions_ButtonHilfeSubFAQ" class="PWGen_tablinksSub" name="FAQ"><a href="#FAQ">F.A.Q.</a></div>
-          </div>
-      </td>
-    </tr>
-    <tr>
-      <td>  
-        <div id="PWGenOptionsTabsAllgemein" class="PWGen_Tabcontent">
-          <h1>Was PWGen kann:</h1>
-          <p>PWGen erzeugt einmalige Passwörter für jede Gelegenheit. Keine Zettelwirtschaft mehr, kein Überlegen welches Passwort denn nun in diesem oder jenem Forum verwendet wurde, ein Mausklick und das Passwort steht dort wo es hin gehört, im Passwort-Feld.<br/>
-          Dabei ist auch ein Export der benutzten Einstellungen sowie der Passwörter jederzeit möglich, zum Beispiel wenn man seinen Browser wechseln will und es dieses AddOn nicht für den Neuen gibt. Und als Lösung für den Notfall gibt es den eigentlichen Generator demnächst auch als eigenständige Webseite, damit man auch bei einem Totalschaden der eigenen Technik jederzeit relativ einfach an seine Passwörter kommt.</p> 
-          <h2>Sicherheit der Passwörter</h2>
-          <p>Die Passwörter sind sicher, solange man niemandem verrät welche Vorgaben man benutzt um seine Passwörter erzeugen zu lassen. Es werden keinerlei Daten an den Programmierer oder andere Dritte übertragen. Sollte es einmal eine Lücke bei einem Anbieter geben, kostet es nur wenige Mausklicks um für diesen Anbieter ein neues Passwort zu erzeugen.<br/>
-          Die Passwörter sind letztlich ein Hash aus diversen Vorgaben durch den Nutzer. Dabei ist ein Hash so etwas wie eine Kombination aus einem Fingerabdruck und einer Queersumme. Mit anderen Worten: Nur weil man das Ergebnis kennt, kann man daraus nicht auf die ursprünglichen Daten schliessen. Das verhindert effektiv, dass, nur weil eine Seite gehackt wurde, der Datendieb auch automatisch die Passwörter für alle anderen Seiten bekommt.</p>
-          <h2>Verschiedene Anmeldungen pro Seite</h2>
-          <p>PWGen unterstützt die Möglichkeit, sich mit verschiedenen Identitäten an einer Seite anzumelden. Dabei bleibt es aber unauffällig: Nur wenn man in den Einstellungen explizit angibt, dass man auf einer Seite verschiedene Profile benutzt, fragt es bei der Passwortabfrage auch nach, welcher Name benutzt werden soll um das Passwort zu erzeugen. So bleibt es bequem für den normalen Benutzer, gibt dem Vielsurfer aber alle Möglichkeiten an die Hand selbst zu entscheiden.</p>
-          <p>Wer mehr über die Art und Weise der Passworterzeugung von PWGen erfahren möchte, kann dies in der Hilfe nachlesen.</p>
-          <h2>Danke an:</h2>
-          <p>
-           - Die vielen Helfer von www.camp-firefox.de!<br/>
-           - Die Ersteller der Scripte, die mir eine Menge Arbeit erspart haben. Dazu gehören:<br/>
-           &nbsp;&nbsp;&nbsp;&nbsp; ~ Jeff Mott für CryptoJS v3.1.2 (auf code.google.com/p/crypto-js)<br/>
-           &nbsp;&nbsp;&nbsp;&nbsp; ~ "Kirupa" (www.kirupa.com/about/whatiskirupa.htm) für sein äusserst praktisches Script:<br/> 
-           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;www.kirupa.com/html5/get_element_position_using_javascript.htm
-          </p>
-         </div>  
+  <a id="PWGenOptionenTop"></a>
+  <div id="PWGenOptionenWrapper">
+    
+    <!-- die Menupunkte -->
+    <div id="PWGenOptionenTabs">      
+      <div class="tabs">
+        <div id="PWGenOptionenLogo"><img id="PWGenOptionsLogo" src="../../icons/icon_blue_logo_aktuell.png" height="220px" width="220px"></div>
+      </div>
+      <div class="tabs">
+        <h2>Übersicht</h2>
+      </div>
+      <div id="tabsInfo" class="tabs">
+        <div id="tabsWrapperInfo" class="tabsWrapper wrapperAktiv">
+          <div id="tabsKopfInfo" class="tabsKopf" data-zielid="PWGenOptionenInhalteInfo" data-tabstype="kopf" data-tabswrapper="tabsWrapperInfo">Info</div>
+        </div>
+      </div>
+      <div id="tabsVerhalten" class="tabs">
+        <div id="tabsWrapperVerhalten" class="tabsWrapper">
+          <div id="tabsKopfVerhalten" class="tabsKopf" data-zielid="PWGenOptionenInhalteVerhalten" data-tabstype="kopf" data-tabswrapper="tabsWrapperVerhalten">Verhalten</div>
+        </div>
+      </div>
+      <div id="tabsOberfläche" class="tabs">
+        <div id="tabsWrapperOberfläche" class="tabsWrapper">         
+          <div id="tabsKopfOberfläche" class="tabsKopf" data-zielid="PWGenOptionenInhalteOberfläche" data-tabstype="kopf" data-tabswrapper="tabsWrapperOberfläche">Oberfläche</div>
+        </div>
+      </div>
+      <div id="tabsBenutzer" class="tabs">
+        <div id="tabsWrapperBenutzer" class="tabsWrapper">
+          <div id="tabsKopfBenutzer" class="tabsKopf" data-zielid="PWGenOptionenInhalteBenutzer" data-tabstype="kopf" data-tabswrapper="tabsWrapperBenutzer">Benutzer</div>
+        </div>
+      </div>            
+      <div id="tabsSichern" class="tabs">
+        <div id="tabsWrapperSichern" class="tabsWrapper">
+          <div id="tabsKopfSichern" class="tabsKopf" data-zielid="PWGenOptionenInhalteSichern" data-tabstype="kopf" data-tabswrapper="tabsWrapperSichern">Sichern</div>
+        </div>
+      </div>
+      <div id="tabsHilfe" class="tabs">
+        <div id="tabsWrapperHilfe" class="tabsWrapper">
+          <div id="tabsKopfHilfe" class="tabsKopf" data-zielid="PWGenOptionenInhalteHilfe" data-tabstype="kopf" data-tabswrapper="tabsWrapperHilfe">Hilfe</div>
+          <div id="tabsSubHilfeVerhalten" class="tabsSub" data-zielid="PWGenOptionenInhalteHilfeVerhalten" data-tabstype="sub" data-tabswrapper="tabsWrapperHilfe">Verhalten</div>
+          <div id="tabsSubHilfeOberfläche" class="tabsSub" data-zielid="PWGenOptionenInhalteHilfeOberfläche" data-tabstype="sub" data-tabswrapper="tabsWrapperHilfe">Oberfläche</div>
+          <div id="tabsSubHilfeBenutzer" class="tabsSub" data-zielid="PWGenOptionenInhalteHilfeBenutzer" data-tabstype="sub" data-tabswrapper="tabsWrapperHilfe">Benutzer</div>
+          <div id="tabsSubHilfeSichern" class="tabsSub" data-zielid="PWGenOptionenInhalteHilfeSichern" data-tabstype="sub" data-tabswrapper="tabsWrapperHilfe">Sichern</div>
+          <div id="tabsSubHilfeFunktion" class="tabsSub" data-zielid="PWGenOptionenInhalteHilfeFunktion" data-tabstype="sub" data-tabswrapper="tabsWrapperHilfe">Funktion</div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- die Inhalte der einzelnen Menupunkte -->
+    <div id="PWGenOptionenInhalte">
+      <div id="PWGenOptionenInhalteInfo" class="tabsContent">
+        <h2>Version: 0.5 alpha vom 10. Juli 2018</h2>
+        <h3>funktionslose Optionen sind gesperrt!</h3> 
+         
+      
+      </div>
+      
+      <div id="PWGenOptionenInhalteHilfe" class="tabsContent">
+        <h2>PWGen erklärt</h2>
+        <div>
+          Kurz gesagt: PWGen ist ein Passwortgenerator mit integrierter Benutzerverwaltung.<br/><br/>
+          Das Erzeugen eines neuen Passworts ist mit PWGen nur zwei Mausklicks entfernt. Dabei bleibt jederzeit die Möglichkeit erhalten, das vorherige Passwort wieder abzurufen. PWGen speichert sowohl das ursprüngliche Passwort selbstverständlich verschlüsselt ab, als auch alle weiteren Daten die es speichern soll.<br/><br/>
+          PWGen kann den in Firefox integrierten Passwortspeicher vollständig ersetzen. Es speichert auf Wunsch für jeden Benutzer getrennt die Zugangsdaten auf jeder Webseite und ruft sie mit einem einfachen Mausklick wieder ab. Dabei bietet es auf Wunsch die Option, für jeden Benutzer mehrere "Identitäten" abzuspeichern. So kann man sich zum Beispiel in einem Forum sowohl als PersonX als auch als PersonY anmelden, ohne das PWGen die Zugangs-Daten miteinander vermischt.<br/><br/>
+          PWGen ist vielfältig konfigurierbar. Von der Passwortverwaltung über die Datenspeicherung bis hin zum verwendeten Icon auf den Webseiten ist es den eigenen Wünschen anpassbar. Das geht so weit, dass ein Profi die Möglichkeit hat, das gesammte Aussehen von PWGen zu verändern.<br/><br/>  
+          Doch trotz der durchaus vielfältigen Optionen bleibt es für den normalen Benutzer leicht zu bedienen. Es werden im normalen Alltag nur die Funktionen sichtbar, welche man auch ausdrücklich haben will. Man wohnt alleine? Dann braucht man keine getrennten Benutzer und kann die Verwaltung entsprechend abgeschaltet lassen. Man benutzt sowieso den Firefox im Auslieferungszustand? Dann braucht man auch das Design nicht anzupassen und die entsprechenden Felder in den Optionen bleiben versteckt.    
  
-        <div id="PWGenOptionsTabsOptionen" class="PWGen_Tabcontent">
-          <h1>Optionen</h1>
-          </p>
-          <table>
-            <tr>
-              <td class="Schaltertitel">Masterpasswort:</td>
-              <td class="Schalterwert"><select id="PWGenOptions_Einstellungen_InputMasterpasswort" class="PWGenOptionsInput"><option selected="selected" value="always">immer fragen</option><option value="once">einmal pro Sitzung</option><option value="save">hier speichern</option></td>
-              <td class="Schalterhilfe">Wie soll PWGen mit dem Master-Passwort umgehen?</td>
-            </tr>
-            <tr class="PWGen_Masterpasswort_Vorgabe">
-              <td colspan="3" class="c"><hr><h4>Es wird davon abgeraten das Master-Passwort dauerhaft zu speichern!</h4></td>
-            </tr>
-            <tr class="PWGen_Masterpasswort_Vorgabe">
-              <td class="Schaltertitel">Eingeben:</td>
-              <td class="Schalterwert"><input id="PWGenOptions_Einstellungen_InputMasterpasswortSpeichern" class="PWGenOptionsInput" type="password"></td>
-              <td class="Schalterhilfe">Bitte das Masterpasswort eingeben.</td>
-            </tr>
-            <tr class="PWGen_Masterpasswort_Vorgabe">
-              <td class="Schaltertitel">Wiederholen:</td>
-              <td class="Schalterwert"><input id="PWGenOptions_Einstellungen_InputMasterpasswortWiederholen" class="PWGenOptionsInput" type="password"></td>
-              <td class="Schalterhilfe">Bitte das Masterpasswort wiederholen.</td>
-            </tr>
-            <tr>
-              <td colspan="3" class="c"><hr></td>
-            </tr>
-            <tr>
-              <td colspan="2" class="r"><h3>Button-Einstellungen:</h3></td>
-            </tr>
-            <tr>
-              <td class="Schaltertitel">Button&nbsp;setzen:</td>
-              <td class="Schalterwert"><select id="PWGenOptions_Einstellungen_InputButtonAktiv" class="SelectJaNein PWGenOptionsInput"><option selected="selected" value="true">ja</option><option value="false">nein</option></td>
-              <td class="Schalterhilfe">Soll der Button (<img src="../../icons/icon_blue.svg" height="24px" width="24px">) in der Browser-Toolbar gesetzt werden?</td>
-            </tr>
+        </div> 
+      </div>
+      <div id="PWGenOptionenInhalteHilfeVerhalten" class="tabsSubContent">
+        <h2>Wie kann man PWGen dem eigenen Bedarf anpassen</h2>         
+      </div>
+      <div id="PWGenOptionenInhalteHilfeOberfläche" class="tabsSubContent">
+        <h2>PWGen's Aussehen den eigenen Wünschen anpassen</h2>
+        <ul>
+          <li>
+            <h3>Eigene Grafik hinterlegen:</h3>
+            Man kann PWGen eine eigene Grafik als Marker übergeben. Dazu einfach den vollständigen base64-Code in das entsprechende Feld im Reiter "Oberfläche" hinterlegen. Den notwendigen Code bekommt man zum Beispiel auf der Seite <a href="https://www.base64-image.de/">https://www.base64-image.de/</a>. Der Code muss dabei diesem Format entsprechen: "data:image/png;base64,iVBORw0...KORK5CYII="<br/>
+            Die Größe des Icons wird von PWGen dem aktuellen Bedarf angepasst, daher sollte die Grafik flexibel genug sein um in verschiedenen Größen eingesetzt zu werden. Am Besten ist eine Vector-Grafik (.svg), aber jedes Grafikformat welches von Firefox unterstützt wird ist möglich.
+          </li>
+        </ul>              
+      </div>
+      <div id="PWGenOptionenInhalteHilfeBenutzer" class="tabsSubContent">
+        <h2>Benutzer, Identitäten und ihre Webseiten</h2>         
+      </div>
+      <div id="PWGenOptionenInhalteHilfeSichern" class="tabsSubContent">
+        <h2>Einstellungen sowie Daten sichern und wiederherstellen</h2>         
+      </div>
+      <div id="PWGenOptionenInhalteHilfeFunktion" class="tabsSubContent">
+        <h2>PWGen hinter den Kulissen</h2>
+      </div>
+    
+      <div id="PWGenOptionenInhalteVerhalten" class="tabsContent">
+        <h2>Die Grundeinstellungen dem eigenen Bedarf anpassen:</h2>
+        <table>
+          <tr>
+            <td class="Schaltertitel">Masterpasswort:</td>
+            <td class="Schalterwert"><select id="PWGenOptions_Einstellungen_InputMasterpasswort" class="PWGenOptionsInput BETA"><option selected="selected" value="0">immer fragen</option><option value="1">einmal pro Sitzung</option><option value="2">hier speichern</option></td>
+            <td class="Schaltertext">Wie soll PWGen mit dem Master-Passwort umgehen?</td>
+            <td class="Schalterhilfe"><img class="InfoIcon" data-target="" data-popup="" src="../../icons/info_icon.svg" height="24px" width="24px"></td>
+          </tr>
+          <tr class="PWGen_Masterpasswort_Vorgabe">
+            <td colspan="3" class="c"><hr><h4>Es wird davon abgeraten das Master-Passwort dauerhaft zu speichern!</h4></td>
+          </tr>
+          <tr class="PWGen_Masterpasswort_Vorgabe">
+            <td class="Schaltertitel">Eingeben:</td>
+            <td class="Schalterwert"><input id="PWGenOptions_Einstellungen_InputMasterpasswortSpeichern" class="PWGenOptionsInput BETA" type="password"></td>
+            <td class="Schaltertext">Bitte das Masterpasswort eingeben.</td>
+          </tr>
+          <tr class="PWGen_Masterpasswort_Vorgabe">
+            <td class="Schaltertitel">Wiederholen:</td>
+            <td class="Schalterwert"><input id="PWGenOptions_Einstellungen_InputMasterpasswortWiederholen" class="PWGenOptionsInput BETA" type="password"></td>
+            <td class="Schaltertext">Bitte das Masterpasswort wiederholen.</td>
+          </tr>
+          <tr>
+            <td colspan="3" class="c"><hr></td>
+          </tr>
+          <tr>
+            <td colspan="2" class="r"><h3>Button-Einstellungen:</h3></td>
+          </tr>
+          <tr>
+            <td class="Schaltertitel">Button&nbsp;setzen:</td>
+            <td class="Schalterwert"><select id="PWGenOptions_Einstellungen_InputButtonAktiv" class="SelectJaNein PWGenOptionsInput BETA"><option selected="selected" value="true">ja</option><option value="false">nein</option></td>
+            <td class="Schaltertext">Soll der Button (<img src="../../icons/icon_blue.svg" height="24px" width="24px">) in der Browser-Toolbar gesetzt werden?</td>
+            <td class="Schalterhilfe"><img class="InfoIcon" data-target="" data-popup="" src="../../icons/info_icon.svg" height="24px" width="24px"></td>
+          </tr>
 
 
-            <tr>
-              <td colspan="3" class="c"><hr></td>
-            </tr>
-            <tr>
-              <td colspan="2" class="r"><h3>Marker-Einstellungen:</h3></td>
-            </tr>
+          <tr>
+            <td colspan="3" class="c"><hr></td>
+          </tr>
+          <tr>
+            <td colspan="2" class="r"><h3>Marker-Einstellungen:</h3></td>
+          </tr>
 
-            <tr>
-              <td class="Schaltertitel">Marker&nbsp;setzen:</td>
-              <td class="Schalterwert"><select id="PWGenOptions_Einstellungen_InputMarkerAktiv" class="SelectJaNein PWGenOptionsInput"><option selected="selected" value="true">ja</option><option value="false">nein</option></td>
-              <td class="Schalterhilfe">Soll der Marker (<img src="../../icons/marker_blue.svg" height="16px" width="16px">) automatisch in Passwortfelder eingefügt werden?</td>
-            </tr>
-            <tr class="PWGen_Markeroptionen">
-              <td class="Schaltertitel">Marker&#8209;Farbe:</td>
-              <td class="Schalterwert"><select id="PWGenOptions_Einstellungen_InputMarkerFarbe" class="PWGenOptionsInput"><option selected="selected" value="blue">blau</option><option value="yellow">gelb</option><option value="green">grün</option><option value="pink">pink</option><option value="red">rot</option><option value="black">schwarz</option></select></td>
-              <td class="Schalterhilfe">Welche Farbe soll der Marker haben?</td>
-            </tr>
-            <tr class="PWGen_Markeroptionen">
-              <td class="Schaltertitel">Passwort bei:</td>
-              <td class="Schalterwert"><select id="PWGenOptions_Einstellungen_InputMarkerPasswortklick" class="PWGenOptionsInput"><option selected="selected" value="left">Linksklick</option><option value="middle">Mittelklick</option><option value="right">Rechtsklick</option><option value="altLeft">Alt + Linksklick</option><option value="shiftLeft">Shift + Linksklick</option><option value="ctrlLeft">Strg + Linksklick</option><option value="altRight">Alt + Rechtsklick</option><option value="shiftRight">Shift + Rechtsklick</option><option value="ctrlRight">Strg + Rechtsklick</option></select></td>
-              <td class="Schalterhilfe">Bei welchem Mausklick soll PWGen das Passwort einfügen?</td>
-            </tr>                          
-            <tr class="PWGen_Markeroptionen">
-              <td class="Schaltertitel">Menu bei:</td>
-              <td class="Schalterwert"><select id="PWGenOptions_Einstellungen_InputMarkerMenuklick" class="PWGenOptionsInput"><option value="left">Linksklick</option><option value="middle">Mittelklick</option><option selected="selected" value="right">Rechtsklick</option><option value="altLeft">Alt + Linksklick</option><option value="shiftLeft">Shift + Linksklick</option><option value="ctrlLeft">Strg + Linksklick</option><option value="altRight">Alt + Rechtsklick</option><option value="shiftRight">Shift + Rechtsklick</option><option value="ctrlRight">Strg + Rechtsklick</option></select></td>
-              <td class="Schalterhilfe">Bei welchem Mausklick soll PWGen das Menu öffnen?</td>
-            </tr>
-            <tr class="PWGen_Markeroptionen">
-              <td class="Schaltertitel">Optionen bei:</td>
-              <td class="Schalterwert"><select id="PWGenOptions_Einstellungen_InputMarkerOptionsklick" class="PWGenOptionsInput"><option value="left">Linksklick</option><option selected="selected" value="middle">Mittelklick</option><option value="right">Rechtsklick</option><option value="altLeft">Alt + Linksklick</option><option value="shiftLeft">Shift + Linksklick</option><option value="ctrlLeft">Strg + Linksklick</option><option value="altRight">Alt + Rechtsklick</option><option value="shiftRight">Shift + Rechtsklick</option><option value="ctrlRight">Strg + Rechtsklick</option></select></td>
-              <td class="Schalterhilfe">Bei welchem Mausklick soll PWGen diese Optionen öffnen?</td>
-            </tr>                                      
-
-            <tr>
-              <td colspan="3" class="c"><hr></td>
-            </tr>
-            <tr>
-              <td class="Schaltertitel">Fortgeschrittene<br/>Einstellungen:</td>
-              <td class="Schalterwert"><select id="PWGenOptions_Einstellungen_InputProfiEinstellungen" class="SelectJaNein PWGenOptionsInput"><option value="true">ja</option><option selected="selected" value="false">nein</option></select></td>
-              <td class="Schalterhilfe">Aktiviert weitergehende Optionsfelder wie der Möglichkeit für jede Internetseite eigene Vorgaben zu machen oder eine Lösung um PWGen den eigenen (Farb-)Wünschen anzupassen.</td>
-            </tr>
-            <tr class="PWGen_Profioptionen">
-              <td colspan="3" class="c"><h3>Profi-Optionen:</h3></td>
-            </tr>
-            <tr class="PWGen_Profioptionen">
-              <td class="Schaltertitel">autocomple=off<br/>entfernen:</td>
-              <td class="Schalterwert"><select id="PWGenOptions_Einstellungen_InputAutocomplete" class="SelectJaNein PWGenOptionsInput"><option value="true">ja</option><option selected="selected" value="false">nein</option></select></td>
-              <td class="Schalterhilfe">"autocomplete=off" ist für Seitenbetreiber eine Möglichkeit um zu verhindern, dass Browser wie der Firefox die Passwörter automatisch einfügen. Bei aktivierter Option versucht PWGen, "autocomplete=off" zu entfernen, um Firefox das automatische Einfügen des Passworts zu erlauben.</td>
-            </tr>
-            <tr class="PWGen_Profioptionen">
-              <td class="Schaltertitel">Domain&#8209;Vorgaben<br/>speichern:</td>
-              <td class="Schalterwert"><select id="PWGenOptions_Einstellungen_InputDomainSpeichern" class="SelectJaNein PWGenOptionsInput"><option value="true">ja</option><option selected="selected" value="false">nein</option></select></td>
-              <td class="Schalterhilfe">Soll PWGen Vorgaben, die durch den Button geändert wurden, automatisch für die jeweilige Internetadresse speichern? Hinweis: Die Vorgaben können auf dieser Seite jederzeit geändert oder ganz gelöscht werden!</td>
-            </tr>
-            
-          </table>
-
-        </div>  
-
-           
-        <div id="PWGenOptionsTabsAussehen" class="PWGen_Tabcontent">
-          <h1>Einstellungen zum Aussehen...</h1>
-          <h2>Für die Profis! </h2>
-          Ich gebe es zu: "Styling" ist nicht meine Stärke. Entsprechend schlicht ist PWGen auch gestaltet. Einigen gefällt das, anderen nicht. Also gibt es mit dieser Option die Lösung für beide Seiten:<br/><br/>
-          Hier kann man den von PWGen benutzten CSS-Code ziemlich frei anpassen. Es gelten die offensichtlichen Einschränkungen. Auch wird PWGen bei jedem Start auf die benutzerdefinierten Stylesheets hinweisen wenn sie aktiviert sind. Gespeichert werden sie jedoch grundsätzlich immer. Es ist also problemlos möglich, PWGen nach und nach den eigenen Wünschen anzupassen. Einige CSS-Klassen und IDs finden sich im Beispiel aus den benutzten CSS-Werten, die vollständige Sammlung findet sich auf der Github-Seite: LINK. Der Button "Reset" löscht nach Sicherheitsabfrage die hinterlegten Daten und bringt das Beispiel zurück.<br/>
-          <br/>
-          Benutzer-CSS aktiv: <input id="PWGenOptions_AussehenCSSAktiv" class="PWGenOptionsInput" type="checkbox">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input id="PWGenOptions_AussehenCSSReset" type="button" value="Reset">
-          <br/><br/>
-          <h1>INAKTIV -- BETA -- INAKTIV -- BETA -- INAKTIV  
-          <textarea id="PWGenOptions_AussehenCSS" cols="87" rows="200"></textarea>
-         </div>  
- 
-        <div id="PWGenOptionsTabsHilfe" class="PWGen_Tabcontent">
-          <h1>Hilfe</h1>
-          <h2>WIP ... WIP ... WIP</h2>
-          <p>Ich arbeite dran ... work in progress ... ich arbeite dran ... work in progress</p>
-
-
-          <a id="Einführung"></a>
-          <h2>Einführung:</h2>
-          <h3>WIP ... WIP ... WIP</h3>
-          <p>Ich arbeite dran ... work in progress ... ich arbeite dran ... work in progress</p>
-
-
-          <a id="ButtonsPopup"></a>
-          <h2>Hilfe zum Popup des AddOn-Buttons</h2>
-          <h3>WIP ... WIP ... WIP</h3>
-          <p>Ich arbeite dran ... work in progress ... ich arbeite dran ... work in progress</p>
-
-          <a id="OptionenSeite"></a>
-          <h2>Hilfe zu den Optionen</h2>
-
-          <a id="Fehler"></a>
-          <h3>Fehlermeldungen:</h3>
+          <tr>
+            <td class="Schaltertitel">Marker&nbsp;setzen:</td>
+            <td class="Schalterwert"><select id="PWGenOptions_Einstellungen_InputMarkerAktiv" class="SelectJaNein PWGenOptionsInput"><option selected="selected" value="true">ja</option><option value="false">nein</option></td>
+            <td class="Schaltertext">Soll der Marker <img id="MarkerMuster1" src="../../icons/marker1_blue.svg" height="16px" width="16px"> automatisch in Passwortfelder eingefügt werden?</td>
+          </tr>
+          <tr class="PWGen_Markeroptionen">
+            <td class="Schaltertitel">Passwort bei:</td>
+            <td class="Schalterwert"><select id="PWGenOptions_Einstellungen_InputMarkerPasswortklick" class="PWGenOptionsInput"><option selected="selected" value="Left">Linksklick</option><option value="Middle">Mittelklick</option><option value="altLeft">Alt + Linksklick</option><option value="shiftLeft">Shift + Linksklick</option><option value="ctrlLeft">Strg + Linksklick</option><option value="altRight">Alt + Rechtsklick</option></select></td>
+            <td class="Schaltertext">Bei welchem Mausklick soll PWGen das Passwort einfügen?</td>
+          </tr>                          
+          <tr class="PWGen_Markeroptionen">
+            <td class="Schaltertitel">Menu bei:</td>
+            <td class="Schalterwert"><select id="PWGenOptions_Einstellungen_InputMarkerMenuklick" class="PWGenOptionsInput"><option value="Left">Linksklick</option><option value="Middle">Mittelklick</option><option value="altLeft">Alt + Linksklick</option><option value="shiftLeft">Shift + Linksklick</option><option value="ctrlLeft">Strg + Linksklick</option><option selected="selected" value="altRight">Alt + Rechtsklick</option></td>
+            <td class="Schaltertext">Bei welchem Mausklick soll PWGen das Menu öffnen?</td>
+          </tr>
+          <tr class="PWGen_Markeroptionen">
+            <td class="Schaltertitel">Optionen bei:</td>
+            <td class="Schalterwert"><select id="PWGenOptions_Einstellungen_InputMarkerOptionsklick" class="PWGenOptionsInput"><option value="Left">Linksklick</option><option selected="selected" value="Middle">Mittelklick</option><option value="altLeft">Alt + Linksklick</option><option value="shiftLeft">Shift + Linksklick</option><option value="ctrlLeft">Strg + Linksklick</option><option value="altRight">Alt + Rechtsklick</option></td>
+            <td class="Schaltertext">Bei welchem Mausklick soll PWGen diese Optionen öffnen?</td>
+          </tr>                                      
+          <tr>
+            <td colspan="3" class="c"><hr></td>
+          </tr>
+          <tr>
+            <td class="Schaltertitel">Hilfe&nbsp;aktiv:</td>
+            <td class="Schalterwert"><select id="PWGenOptions_Einstellungen_InputHilfeaktiv" class="SelectJaNein PWGenOptionsInput"><option value="true">ja</option><option selected="selected" value="false">nein</option></select></td>
+            <td class="Schaltertext">Soll das Info-Icon innerhalb der Optionen angezeigt werden?</td>
+          </tr>
+          <tr>
+            <td class="Schaltertitel">Fortgeschrittene<br/>Einstellungen:</td>
+            <td class="Schalterwert"><br/><select id="PWGenOptions_Einstellungen_InputProfiEinstellungen" class="SelectJaNein PWGenOptionsInput"><option value="true">ja</option><option selected="selected" value="false">nein</option></select></td>
+            <td class="Schaltertext">Aktiviert weitergehende Optionsfelder innerhalb dieser Einstellungen, um erfahreneren Benutzern mehr Möglichkeiten zu geben, PWGen den eigenen Bedürfnissen anzupassen. Bitte den entsprechenden Bereich der Hilfe beachten!</td>
+            <td class="Schalterhilfe"><img class="InfoIcon" data-target="" data-popup="" src="../../icons/info_icon.svg" height="24px" width="24px"></td>
+          </tr>
+          <tr class="PWGen_Profioptionen">
+            <td colspan="3" class="c">
+              <h3>Profi-Optionen:</h3>
+            </td>
+          </tr>            
+          <tr class="PWGen_Profioptionen">
+            <td class="Schaltertitel">autocomple=off<br/>entfernen:</td>
+            <td class="Schalterwert"><br/><select id="PWGenOptions_Einstellungen_InputAutocomplete" class="SelectJaNein PWGenOptionsInput"><option value="true">ja</option><option selected="selected" value="false">nein</option></select></td>
+            <td class="Schaltertext">Bei aktivierter Option versucht PWGen, "autocomplete=off" zu entfernen, um Firefox das automatische Einfügen des Passworts zu erlauben.</td>
+            <td class="Schalterhilfe"><img class="InfoIcon" data-target="" data-popup="" src="../../icons/info_icon.svg" height="24px" width="24px"></td>
+          </tr>
+          <tr class="PWGen_Profioptionen">
+            <td class="Schaltertitel">Sperrliste&nbsp;benutzen:</td>
+            <td class="Schalterwert"><select id="PWGenOptions_Einstellungen_InputBlacklist" class="SelectJaNein PWGenOptionsInput BETA"><option selected="selected" value="true">ja</option><option value="false">nein</option></select></td>
+            <td class="Schaltertext">Soll PWGen die integrierte Sperrliste benutzen? Es wird dann auf den betreffenden Internetseiten nicht arbeiten.</td>
+            <td class="Schalterhilfe"><img class="InfoIcon" data-target="" data-popup="" src="../../icons/info_icon.svg" height="24px" width="24px"></td>               
+          </tr>
+          <tr class="PWGen_Profioptionen">
+            <td class="Schaltertitel">Domain&#8209;Vorgaben<br/>immer&nbsp;speichern:</td>
+            <td class="Schalterwert"><br/><select id="PWGenOptions_Einstellungen_ProfioptionAutospeichern" class="SelectJaNein PWGenOptionsInput"><option selected="selected" value="true">ja</option><option selected="selected" value="false">nein</option></select></td>
+            <td class="Schaltertext">Soll PWGen Vorgaben, die durch den Button geändert wurden, automatisch für die jeweilige Internetadresse speichern?</td>
+            <td class="Schalterhilfe"><img class="InfoIcon" data-target="" data-popup="" src="../../icons/info_icon.svg" height="24px" width="24px"></td>
+          </tr>
+        </table>      
+      </div>        
+    
+      <div id="PWGenOptionenInhalteOberfläche" class="tabsContent">
+        <h2>Das Aussehen von PWGen den eigenen Wünschen anpassen:</h2>
+        <table>
+          <tr class="PWGen_Markeroptionen">
+            <td colspan="3">
+              <h3>Marker:</h3>
+            </td>          
+          </tr>
+          <tr class="PWGen_Markeroptionen">
+            <td class="Schaltertitel">Marker&#8209;Farbe:</td>
+            <td class="Schalterwert"><select id="PWGenOptions_Einstellungen_InputMarkerFarbe" class="PWGenOptionsInput"><option selected="selected" value="blue">blau</option><option value="yellow">gelb</option><option value="green">grün</option><option value="pink">pink</option><option value="red">rot</option><option value="black">schwarz</option></select></td>
+            <td class="Schaltertext">Welche Farbe soll der Marker <img id="MarkerMuster2" src="../../icons/marker1_blue.svg" height="16px" width="16px"> haben?</td>
+          </tr>
+          <tr class="PWGen_Markeroptionen">
+            <td class="Schaltertitel">Marker&nbsp;auswählen:</td>
+            <td class="Schalterwert" colspan="1"><select id="PWGenOptions_Einstellungen_InputMarkerTyp" class="PWGenOptionsInput"><option selected="selected" value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option></select></br></td>
+            <td class="Schaltertext">
+              Welche Marker-Grafik soll PWGen benutzen?<br/>
+              1: <img id="Marker1Muster" class="MarkerMuster" src="../../icons/marker1_blue.svg" height="18px" width="18px">
+              2: <img id="Marker2Muster" class="MarkerMuster" src="../../icons/marker2_blue.svg" height="18px" width="18px">
+              3: <img id="Marker3Muster" class="MarkerMuster" src="../../icons/marker3_blue.svg" height="18px" width="18px">
+              4: <img id="Marker4Muster" class="MarkerMuster" src="../../icons/marker4_blue.svg" height="18px" width="18px">
+              5: <img id="Marker5Muster" class="MarkerMuster" src="../../icons/marker5_blue.svg" height="18px" width="18px">
+            </td>
+          </tr>
+          <tr class="PWGen_Markeroptionen">
+            <td class="Schaltertitel">eigene&nbsp;Grafik<br/>benutzen:</td>
+            <td class="Schalterwert"><input id="PWGenOptions_Einstellungen_InputMarkerEigeneGrafik" class="PWGenOptionsInput BETA"></td>
+            <td class="Schaltertext">
+              Hier das in base64 kodierte Icon angeben wenn ein selbst definierter Marker benutzt werden soll. Bitte den entsprechenden Bereich der Hilfe beachten!               
+              <span id="PWGenOptions_Einstellungen_InputMarkerEigeneGrafikMuster"></span>
+            </td>
+            <td class="Schalterhilfe"><img class="InfoIcon" data-target="" data-popup="" src="../../icons/info_icon.svg" height="24px" width="24px"></td>
+          </tr>
+          <tr class="PWGen_Markeroptionen">
+            <td class="Schaltertitel">Marker&#8209;Position:</td>
+            <td class="Schalterwert"><select id="PWGenOptions_Einstellungen_InputMarkerPosition" class="PWGenOptionsInput BETA"><option value="inside_left">innen links</option><option value="outside_left">aussen links</option><option selected="selected" value="inside_right">innen rechts</option><option value="outside_right">aussen rechts</option></select></td>
+            <td class="Schaltertext">Wo am Passwortfeld soll der Marker sichtbar werden?</td>
+          </tr>
           
-          <h4><a id="PWGenOptionsTabsHilfe_Fehlermeldungen_Scriptfehler" class="PWGenOptionsHilfeLinkziel">Scriptfehler</a></h4>
-          <p>Ich arbeite dran ... work in progress ... ich arbeite dran ... work in progress</p>
-          <div class="PWGenOptionsTopLinks"><a href="#OptionenTop">&uArr;</a></div>
+        </table>      
+      </div>        
+      
+      <div id="PWGenOptionenInhalteBenutzer" class="tabsContent">
+        <h2>Benutzer-Vorgaben:</h2>
+        <table>
+          <tr>
+            <td class="Schaltertitel">mehrere&nbsp;Benutzer:</td>
+            <td class="Schalterwert"><select id="PWGenOptions_Einstellungen_BenutzerMultipleJaNein" class="SelectJaNein PWGenOptionsInput"><option selected="selected" value="true">ja</option><option selected="selected" value="false">nein</option></select></td>
+            <td class="Schaltertext">Soll PWGen mehrere Nutzer verwalten? Hinweis: Dies bedeutet nicht, dass ein eventuell einzelner Benutzer nicht mehrere Identitäten pro Webseite haben kann!</td>
+          </tr>
+          <tr class="PWGen_MultipleBenutzer">
+            <td class="Schaltertitel">Benutzer&nbsp;wählen:</td>
+            <td class="Schalterwert"><select id="PWGenOptions_Einstellungen_BenutzerAuswahl" class="PWGenOptionsInput BETA"><option selected="selected">PWGen</option></select></td>
+            <td class="Schaltertext">Bitte auswählen, für welchen Benutzer Einstellungen unter "Identitäten" und "Webseiten" vorgenommen werden sollen.</td>
+          </tr>
+          <tr class="PWGen_MultipleBenutzer">
+            <td colspan="3" class="c">&nbsp;<input id="PWGenOptions_Einstellungen_BenutzerLöschen" class="BETA" value="Benutzer löschen" type="button">&nbsp;&nbsp;&nbsp;<input id="PWGenOptions_Einstellungen_BenutzerEdit" class="BETA" value="Benutzer ändern" type="button">&nbsp;&nbsp;&nbsp;<input id="PWGenOptions_Einstellungen_BenutzerNeu" class="BETA" value="neuen Benutzer anlegen" type="button"></td>
+          </tr>
+          <tr class="PWGen_MultipleBenutzer">
+            <td colspan="3"><hr></td>
+          </tr>
+        </table>
+        </table>
+        <table id="PWGenOptionenInhalteBenutzerWebseiten">
+          <tr>
+            <td colspan="2"><h2>gespeicherte Daten<span id="PWGenOptions_Einstellungen_BenutzerDatenMultiplerText"></span>:</h2></td>
+          <tr>
+            <td>Webseite:</td>
+            <td>Identität:</td>
+            <td>Funktionen:</td>
+          <tbody>
+            <tr>
+              <td class="DomainTitel">www.facebook.com</td>
+              <td class="Identität">DAUFahnder</td>
+              <td class="Funktionen"><input id="BenutzerBearbeitenwwwPUNKTfacebookPUNKTcomDAUFahnder" class="BETA" value="Bearbeiten" type="button">&nbsp;&nbsp;&nbsp;<input id="BenutzerLöschenwwwPUNKTfacebookPUNKTcomDAUFahnder" class="BETA" value="Löschen" type="button"></td>
+            </tr>
+          </tbody>
+        </table>
 
-          <h4><a id="PWGenOptionsTabsHilfe_Fehlermeldungen_AddOnManipulationen" class="PWGenOptionsHilfeLinkziel">Keine AddOn-Manipulationen möglich</a></h4>
-          <p>Ich arbeite dran ... work in progress ... ich arbeite dran ... work in progress</p>
-          <div class="PWGenOptionsTopLinks"><a href="#OptionenTop">&uArr;</a></div>
+        
+      </div>
+      
+      
 
-          <h4><a id="PWGenOptionsTabsHilfe_Fehlermeldungen__AboutManipulationen" class="PWGenOptionsHilfeLinkziel">Keine about:-Manipulationen möglich</a></h4>          
-          <p>Ich arbeite dran ... work in progress ... ich arbeite dran ... work in progress</p>
-          <div class="PWGenOptionsTopLinks"><a href="#OptionenTop">&uArr;</a></div>
+      <div id="PWGenOptionenInhalteSichern" class="tabsContent"><h1>Sichern</h1></div>      
 
-          <h4><a id="PWGenOptionsTabsHilfe_Fehlermeldungen_FehlendeDatenImPopup" class="PWGenOptionsHilfeLinkziel">~~~~ fehlt</a></h3>
-          <p>Ich arbeite dran ... work in progress ... ich arbeite dran ... work in progress</p>
-          <div class="PWGenOptionsTopLinks"><a href="#OptionenTop">&uArr;</a></div>
-
-          <a id="Kontakt"></a>
-          <h2>Kontakt bei Fragen oder Problemen:</h2>
-          <h3>WIP ... WIP ... WIP</h3>
-          <p>Ich arbeite dran ... work in progress ... ich arbeite dran ... work in progress</p>
-          <div class="PWGenOptionsTopLinks"><a href="#OptionenTop">&uArr;</a></div>
-
-          <a id="FAQ"></a>
-          <h2>F.A.Q. - häufig gestellte Fragen:</h2>
-          <h3>WIP ... WIP ... WIP</h3>
-          <p>Lorem ipsum dolor sit amet consectetuer metus augue nulla tincidunt et. In auctor auctor cursus mauris rhoncus Aliquam leo Vestibulum Vivamus Donec. Phasellus adipiscing dictumst tempus interdum suscipit consequat nibh ut neque pretium. Cras dictumst quis nec Maecenas facilisi elit turpis condimentum.</p>
-<p>Lacinia convallis vitae ligula sem augue vitae faucibus lorem elit Nunc. Parturient aliquam rhoncus wisi pellentesque vel nibh Donec malesuada eget dictum. At nec auctor quis Nulla congue feugiat id nisl nec.</p>
-<p>Pellentesque commodo congue laoreet vel convallis Nulla risus laoreet Pellentesque Vivamus. Eget risus Vestibulum Pellentesque felis vel pede Fusce Cum sed eget. Libero magnis et congue tincidunt lorem vel turpis a enim Vestibulum. Pellentesque mauris felis Curabitur Pellentesque In at Aenean eget condimentum Fusce. Semper urna dui.</p>
-<p>Pede et Integer porttitor neque Aenean ipsum convallis mus et montes. Adipiscing vel aliquet sit laoreet a pellentesque Nullam vitae et mattis. Praesent.</p>
-
-          <div class="PWGenOptionsTopLinks"><a href="#OptionenTop">&uArr;</a></div>
-         </div>  
-       
-      </td>
-    </tr>
-  </table>
+    </div>
   </div> 
 </body>

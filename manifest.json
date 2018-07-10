@@ -49,7 +49,7 @@
   
 	"applications": {
 		"gecko": {
-			"id": "PWGen@daufahnder",
+			"id": "PWGen@daufahnder.invalid",
 			"strict_min_version": "60.0"
 		}
 	}

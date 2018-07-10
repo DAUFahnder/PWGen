@@ -13,5 +13,7 @@ Popup:        - EINMAL Master-PW pro Sitzung abfragen, danach automatisch generi
 
 Background:   - siehe Popup          
           
+          
+          Blacklist für Domains wo man keine Passwörter speichern kann (Banken z.B.!)
 
        

@@ -22,12 +22,12 @@ img#PWGenPopupLogo {
   margin-bottom: 8px;
   text-align: center;
 }
-#PWGenPoupFormTable {
+#PWGenPopupFormTable {
   margin-left: auto;
   margin-right: auto;
   text-align: left;
 }
-#PWGenPoupFormTable td {
+#PWGenPopupFormTable td {
   padding-top: 5px  
 }
 tr.text {
@@ -47,25 +47,25 @@ input:disabled, input[type=checkbox]:checked:disabled,  input[type="number"]:dis
 input[type=button] {
   font-size: 15px;
 }
-#PWGenPoupFormTableMasterPW {  
+#PWGenPopupFormTableMasterPW {  
   width: 15ex;
   text-align: center;
 }
-#PWGenPoupFormTableDomain {
+#PWGenPopupFormTableDomain {
   width: 24ex;
   font-size: 72%;
   text-align: center;
 }
-#PWGenPoupFormTableAusgabe {
+#PWGenPopupFormTableAusgabe {
   width: 35ex;
   text-align: center;
 }
-#PWGenPoupFormTableBenutzer {
+#PWGenPopupFormTableBenutzer {
   width: 13ex;
   text-align: center;
 }
   
-#PWGenPoupFormTableNummer {
+#PWGenPopupFormTableNummer {
   width: 3ex;
   -moz-appearance: textfield;
   text-align: center;

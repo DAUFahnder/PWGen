@@ -1,60 +1,21 @@
 
-/*
-  PWGen_Aktuell[PWGen_Aktuell.Domain.replace(/\./g, "DOT")] = "D";
-  console.log(PWGen_Aktuell[PWGen_Aktuell.Domain.replace(/\./g, "DOT")])  // -> D
-
-  PWGen_Aktuell.DomainEncoded = PWGen_Aktuell.Domain.replace(/\./g, "DOT");
-  console.log (PWGen_Aktuell.DomainEncoded);                              // ->  wwwDOTdaufahnderDOTde
-
-  PWGen_Aktuell.DomainDecoded = PWGen_Aktuell.DomainEncoded.replace(/DOT/g, ".");
-  console.log (PWGen_Aktuell.DomainDecoded);                              // ->  www.daufahnder.de
-
-*/
-// Ja ja, ein Mix aus Deutschen und Englischen Bezeichnern... 
-// und bei selbigen auch keine feste Art sie zu benennen, vor allem Gross/kleinschreibung.
-// Ich weiss, ich arbeite dran...
-
-var PWGen_Config = [];
-  PWGen_Config.CSS = "";                   // irgendwann mal...
-  PWGen_Config.Sprache = "de";
-  PWGen_Config.Marker = [];
-  if (!PWGen_Config.Marker.Farbe) {PWGen_Config.Marker.Farbe = "blue"};
-  console.log (PWGen_Config.Marker.Farbe);
-
-var PWGen_User = [];
-  PWGen_User.Anzahl = "1";                 // ein Browser, mehrere Benutzer... irgendwann mal.
-  PWGen_User.User = [];
-  PWGen_User.User[1] = []; 
-  
 var PWGen_Aktuell = [];
   PWGen_Aktuell.Domain = "www.daufahnder.de";
   PWGen_Aktuell.Benutzername = "DAUFahnder";  
   PWGen_Aktuell.Laenge = "5";
   PWGen_Aktuell.Sonderzeichen = "true";
-  
-async function PWGen_LadeConfig() {  
-  PWGen_Config =  await PWGen_Laden(PWGen_Config);
-  console.log (PWGen_Config);
-}
 
   
 async function PWGen_GetPasswort(FeldID){
-  browser.storage.local.set({PWGen_Aktuell});  
-
-  PWGen_Aktuell.Benutzername = await PWGen_Laden(PWGen_Aktuell["Benutzername"]);
-  PWGen_Aktuell.Laenge = await PWGen_Laden(PWGen_Aktuell["Laenge"]);
-  PWGen_Aktuell.Domain = await PWGen_Laden(PWGen_Aktuell["Domain"]);  
-  PWGen_Aktuell.Sonderzeichen = await PWGen_Laden(PWGen_Aktuell["Sonderzeichen"]);
-  
-  var Test = "T";       // nur zum Testen, der String wird demnächst aus obigen Werten zusammen gesetzt
-  console.log(Test);
-  console.log(PWGen(Test));
-  getID(FeldID).value = PWGen(Test);
+  browser.storage.local.set({PWGen_Aktuell});
+  PWGen_Aktuell = await PWGen_Laden(PWGen_Aktuell);  
+  // getID(FeldID).value = PWGen(Test);
   console.log(PWGen(Test));
 }
 
 function PWGen_Laden(Schluessel) {
   browser.storage.local.get(Schluessel);
+  console.log (Schluessel);
   return Schluessel;  
 }
 

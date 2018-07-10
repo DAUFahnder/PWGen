@@ -1,158 +1,171 @@
 body {
-  background: lightgrey;
-  text-align: center;
   overflow-y: scroll;
   clear: both;
+  padding: 0px;
+  background-color:rgb(240,240,240);
 }
 
-#PWGenOptionsTabsHilfeSubmenu .PWGen_tablinksSub:hover {
+input:disabled {
   background: silver;
 }
-
-#PWGenOptionsMenu .PWGen_tablinks :hover{
+select:disabled {
   background: silver;
-  color: red;
 }
-
-#PWGenMenuspalteWrapper {
-  position:fixed;
+#PWGenOptionenInhalteBenutzerWebseiten {
+  width: 100%;
 }
-a:link, a:visited, a:hover, a:active {
-  color: blue;
-  font-weight: bold;
+#PWGenOptionenInhalte {
+  min-height: 800px;
+  width: 900px;
+  margin-bottom: 20px;
+  padding-bottom: 20px;
+  border: 5px solid rgb(185,185,185);
+  border-radius: 50px;
 }
- 
-#PWGenOptionsTabelle {
-  text-align: left;
-}
-#PWGenOptionsWrapper {
-  width: 58%;
+#PWGenOptionenWrapper {  
+  width: 70%;
+  margin-top: -5px;
   margin-left: auto;
   margin-right: auto;
 }
-#PWGenOptionsTabelle td {
-  vertical-align:top;  
-} 
-#PWGenOptionsLogo {
-  vertical-align: text-top;
-  margin-bottom: 20px;
-}
-.PWGen_tab {
-  overflow: hidden;
-  text-align: right;
-  margin-right: -7px;
-}
-#PWGenOptionsInfos h1{
-  font-size: 45px;
-  margin-top: 0px;
-  margin-bottom: 15px;
-  text-align: center;    
-}
-#PWGenOptions_HinweisText {
-  max-width: 210px;
-  text-align: justify;
-  -moz-hyphens: auto;
-  -o-hyphens: auto;
-  -webkit-hyphens: auto;
-  -ms-hyphens: auto;
-  hyphens: auto;
-  background: white;
-  padding-left: 5px;
-  padding-right: 5px;
-}
-#PWGenOptions_HinweisText hr {
-  width: 100%
-}
-#PWGenOptionsMenu div.PWGen_tablinks {
-  display: inline-block;
-  width: 126px;
-  text-align: left;
-  margin-top: 0px;
-  margin-bottom: 15px;
-  margin-left: 40px;
-  padding-left: 15px;
-  padding-right: 19px;
-  background-color: grey;
-  border: 1px solid black;
-  border-right: none;
-  outline: none;
-  cursor: pointer;
-  font-size: 29px;
-  font-weight: bold;  
-}
-#PWGenOptionsTabsHilfeSubmenu {
-  max-width: 100%;
-  padding-left: 15px;
-  background: grey;
-  margin-bottom: -10px;
-  padding-top: 13px;
-  margin-top: 3px;
-  display: none;
-  height: 25px;
-}
-#PWGenOptionsTabsHilfeSubmenu div.PWGen_tablinksSub {
+#PWGenOptionenTabs {
+  color: rgb(105,105,105);
   float: left;
-  font-size: 25px;
-  margin: 1px;
-  margin-left: -2px;
-  padding-left: 11px;
-  padding-right: 11px;
-  display: inline-block;
-  background: grey;
-  border: none;
+  margin-right: 0px !important;
+}
+div.tabs {
+  font-size: 210%;
+  text-align: center;
   cursor: pointer;
+  border-top-left-radius: 15px;
+  border-bottom-left-radius: 15px;  
 }
-#PWGenOptionsTabsHilfeSubmenu div.PWGen_tablinksSub a {
-  text-decoration: none;
-  color: black;
+div.tabs h2 {
+  margin-top: 0px;
+  margin-bottom: 0px;
+  color: black
 }
-   
-#PWGenOptionsMenu div.active {
-  background-color: silver;
-} 
-.PWGen_Tabcontent {        
-  background-color: silver;
-  min-width: 80%;
-  max-width: 80%;
-  display: none;
-  padding-left: 15px;
-  padding-bottom: 20px;
-  border: 1px solid black;
-  padding-top: 0px;
-  margin-left: 222px;
-}
-div.PWGenOptionsTopLinks {
-  float: right;
-  margin-right: 10px;
-  margin-top: -40px;
-}
-.PWGen_TabcontentSub {        
-  background-color: gainsboro;
+.tabsWrapper {
+  background-color:rgb(220,220,220);
   text-align: left;
+  border-top-left-radius: 15px;
+  border-bottom-left-radius: 15px;
+  margin-top: 5px;
+}
+.tabsWrapper:hover{
+  background-color:rgb(200,200,200);
+  color: black;
+  border-top-left-radius: 15px;
+  border-bottom-left-radius: 15px; 
+}
+.tabsWrapper .tabsKopf:hover {
+  background-color:rgb(185,185,185);
+  font-weight: bold;
+  border-top-left-radius: 15px;
+  border-bottom-left-radius: 15px;
+}
+.tabsWrapper .tabsSub:hover {
+  background-color:rgb(185,185,185);
+  font-weight: bold;
+  border-top-left-radius: 15px;
+  border-bottom-left-radius: 15px;  
+}                 
+.tabsKopf {
+  padding-left: 20px;
+  border-top-left-radius: 15px;
+  border-bottom-left-radius: 15px;
+}
+.tabsSub {
   display: none;
-  padding-left: 0px;
-  border: 1px solid black;
-  margin-top: 0px;
-  padding-top: 0px;
+  padding-left: 30px;
+  font-size: 70%;
+  border-top-left-radius: 15px;
+  border-bottom-left-radius: 15px;  
 }
-.PWGen_TabcontentSub div {
-  width: 180px;
-  font-size: 20px;
-  padding-left: 10px;
-  padding-right: 10px;
-  background: lightgrey;
-  margin-top: 0px;
-  margin-bottom: 12px;  
+div.wrapperAktiv {
+  background-color:rgb(185,185,185);
+  color: black;
+  border-radius: 0px; 
+  border-top-left-radius: 15px;
+  border-bottom-left-radius: 15px;
 }
-textarea {
-  margin-right: 8px;
+div.wrapperAktiv:hover {
+  background-color:rgb(185,185,185);
+  color: black;
+  border-top-left-radius: 15px;
+  border-bottom-left-radius: 15px;    
 }
-.c {
+div.wrapperAktiv:hover .tabsSub{
+  display: block;
+  border-top-left-radius: 15px;
+  border-bottom-left-radius: 15px;  
+}
+
+div.wrapperAktiv .tabsSub:hover, div.wrapperAktiv .tabsKopf:hover {
+  background-color:rgb(200,200,200);
+  border-top-left-radius: 15px;
+  border-bottom-left-radius: 15px;  
+} 
+div.wrapperAktiv .tabsKopf {
+  padding-left: 35px;
+  border-top-left-radius: 15px;
+  border-bottom-left-radius: 15px;
+}
+div.wrapperAktiv .tabsSub {
+  display: block;
+  padding-left: 50px;
+  border-top-left-radius: 15px;
+  border-bottom-left-radius: 15px;
+}
+.kopfAktiv, .subAktiv {
+  background-color:rgb(185,185,185);
+  font-weight: bold;
+  border-top-left-radius: 15px;
+  border-bottom-left-radius: 15px;
+}
+.tabsContent {
+  display: none;
+}
+.tabsSubContent {
+  display: none;
+}
+
+#PWGenOptionenInhalte {
+  font-size: 120%;
+  margin-left: 0px;
+  padding-left: 20px;
+  padding-right: 20px; 
+  max-width: 70%; 
+  float: left;
+  text-align: justify;
+  background-color: rgb(185,185,185);
+}
+
+h1, h2, h3, h4,  {
+  margin-top: -5px;
+}
+a {
+  color: blue;
+  font-weight: bold;
+}
+td {
+  vertical-align: top;
+  padding-bottom: 5px;
+}
+td.c {
   text-align: center;
 }
-.l {
-  text-align: left;
-}
-.r {
+th.c {
   text-align: right;
 }
+img.MarkerMuster {
+  padding-right: 25px;
+}
+img.InfoIcon {
+  margin-right: -100px;
+}
+input[type="button"] {
+  font-size: 90%;
+  font-weight: bold;
+}
+
