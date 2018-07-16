@@ -66,10 +66,9 @@ function PWGen_Popup_Init(){
     DomainKodiert = url.hostname.replace(RegExEins, "PUNKT");
     DomainDekodiert = DomainKodiert.replace(RegExZwei, ".");
     
-    var PWGenUser = "DAUFahnder";
-    
     browser.storage.local.get()
     .then(settings => {
+      var PWGenUser = settings.PWGenUser;
       if (!settings.DomainConfigs[DomainKodiert]) {console.log ("Keine Daten fuer diese Domain gespeichert, Laden abgebrochen. Warte auf Usereingaben!"); return;}          // Optionen für diese Domain wurden noch nie gesetzt -> Abbruch!
       else if (!settings.DomainConfigs[DomainKodiert][PWGenUser]) {console.log ("Der PWGenUser " + PWGenUser + " hat auf dieser Domain noch keine gespeicherten Daten, Laden abgebrochen. Warte auf Usereingaben!"); return;}
       else {
@@ -77,14 +76,14 @@ function PWGen_Popup_Init(){
           getID("PWGenPopupFormTableMasterPW").value = settings.Masterpasswort;
           console.log ("MasterPW noch ver- und entschlüsseln!");        
         };
-        if (Object.keys(settings.DomainConfigs[DomainKodiert][PWGenUser]).length > 1) {console.log ("Mehr als einer");}      // Abfragen welcher es denn sein soll...
+        if (Object.keys(settings.DomainConfigs[DomainKodiert][PWGenUser][Benutzer]).length > 1) {console.log ("Mehr als einer");}      // Abfragen welcher es denn sein soll...
         console.log("T");
         console.log (Object.keys(settings.DomainConfigs[DomainKodiert][PWGenUser]));
         console.log("T");
-        getID("PWGenPopupFormTableBenutzer").value = settings.DomainConfigs[DomainKodiert].Benutzer;
-        getID("PWGenPopupFormTableNummer").value = settings.DomainConfigs[DomainKodiert].Nummer;
-        getID("PWGenPopupFormTableSonderzeichen").value = settings.DomainConfigs[DomainKodiert].Sonderzeichen;
-        getID("PWGenPopupFormTablePWLaenge").value = settings.DomainConfigs[DomainKodiert].PWLaenge;
+        getID("PWGenPopupFormTableBenutzer").value = settings.DomainConfigs[DomainKodiert][PWGenUser].Benutzer;
+        getID("PWGenPopupFormTableNummer").value = settings.DomainConfigs[DomainKodiert][PWGenUser].Nummer;
+        getID("PWGenPopupFormTableSonderzeichen").value = settings.DomainConfigs[DomainKodiert][PWGenUser].Sonderzeichen;
+        getID("PWGenPopupFormTablePWLaenge").value = settings.DomainConfigs[DomainKodiert][PWGenUser].PWLaenge;
       };
       
     }, error => console.log(`Error: ${error}`));
@@ -110,7 +109,7 @@ function PWGenLoadHilfe() {
 }
 function PWGenLoadOptions() {
   browser.tabs.create({
-    url:browser.extension.getURL("content/options/options.html?ziel=KopfInfo")
+    url:browser.extension.getURL("content/options/options.html?ziel=KopfBenutzer")
   });
   window.close();  
 }

@@ -1,21 +1,51 @@
 
   document.addEventListener('DOMContentLoaded', PWGen_Options_Init);
-
-  var pwg_cfg = {};
-      pwg_cfg.Options = {};      
-  
+    
+    
     function PWGen_Options_Load() {
+      for(i = getID("PWGen_BenutzerAuswahl").options.length - 1 ; i >= 0 ; i--) {
+        getID("PWGen_BenutzerAuswahl").remove(i);
+      };
+      
       browser.storage.local.get()
-        .then(settings => {
-        if (!settings.Options) {console.log ("Erster Aufruf der Optionen, Laden abgebrochen. Warte auf Usereingaben!"); return;}          // Optionen wurden noch nie gesetzt -> Abbruch!
-        Object.keys(settings.Options).forEach(
-        key => getID(key).value = settings.Options[key]
-        );           // Einmal durchs Array bitte und die Daten in den Optionen einfügen...
-      }, error => console.log(`Error: ${error}`));
+        .then(Speicher => {
+          
+          // neu einsetzen:
+          for(name in Speicher.User) {            
+            var Feld = getID("PWGen_BenutzerAuswahl");
+            var c = document.createElement("option");
+            c.text = Speicher.User[name].Optionen.Benutzer.Anzeigename;
+            c.value = name; 
+            Feld.options.add(c, 1);
+          };
+          
+          getID("PWGen_Version").innerHTML = Speicher.System.Version + " " + Speicher.System.Status + " | " + Speicher.System.Datum + "<br/> ";
+          getID("PWGen_BenutzerAuswahl").value = Speicher.AktuellerUser;
+          var User = getID("PWGen_BenutzerAuswahl").value;
+                    
+          getID("PWGen_MarkerFarbe").value = Speicher.User[User].Optionen.Aussehen.MarkerFarbe;
+          getID("PWGen_MarkerTyp").value = Speicher.User[User].Optionen.Aussehen.MarkerTyp;
+          getID("PWGen_MarkerGrafik").value = Speicher.User[User].Optionen.Aussehen.MarkerGrafik;
+          getID("PWGen_MarkerPosition").value = Speicher.User[User].Optionen.Aussehen.MarkerPosition;
+          
+
+          getID("PWGen_HauptpasswortAbfrage").value = Speicher.User[User].Optionen.Benutzer.HauptpasswortAbfrage;
+
+          getID("PWGen_MarkerSetzen").value = Speicher.User[User].Optionen.Verhalten.MarkerSetzen;
+          getID("PWGen_ButtonSetzen").value = Speicher.User[User].Optionen.Verhalten.ButtonSetzen;
+          getID("PWGen_MenuKlick").value = Speicher.User[User].Optionen.Verhalten.MenuKlick;
+          getID("PWGen_OptionenKlick").value = Speicher.User[User].Optionen.Verhalten.OptionenKlick;
+          getID("PWGen_PasswortKlick").value = Speicher.User[User].Optionen.Verhalten.PasswortKlick;
+          getID("PWGen_OptionenHilfe").value = Speicher.User[User].Optionen.Verhalten.OptionenHilfe;
+          getID("PWGen_AutocompleteOff").value = Speicher.User[User].Optionen.Verhalten.AutocompleteOff;
+          getID("PWGen_SystemBlacklistAktiv").value = Speicher.User[User].Optionen.Verhalten.SystemBlacklistAktiv;
+          getID("PWGen_DomainImmerSpeichern").value = Speicher.User[User].Optionen.Verhalten.DomainImmerSpeichern;
+          PWGen_CheckAnsicht(); 
+        }, error => console.log(`Error: ${error}`));
     }
     
     function PWGen_Options_Init(){    
-    if (browser.storage) {PWGen_Options_Load();}                      // im Testmodus (nur als Webseite) gibts kein browser.storage...
+    PWGen_Options_Load();                     
     var i;
     var BetaInputs = document.getElementsByClassName("BETA");
     for (i = 0; i < BetaInputs.length; i++) {                                                           // Listener für die Options-Tabs
@@ -32,32 +62,57 @@
     for (i = 0; i < tablinks.length; i++) {                                                           // Listener für die Options-SubTabs
       getID(tablinks[i].id).addEventListener("click", function(e){PWGen_openTab(e)});
     }
-    
+
+    getID("PWGen_BenutzerAuswahl").addEventListener ("change", function(e){
+      browser.storage.local.get()
+        .then(Speicher => {
+          var User = getID("PWGen_BenutzerAuswahl").value;
+          Speicher.AktuellerUser = User;
+          browser.storage.local.set(Speicher)
+          .then (() => setTimeout(() => setStatus(e.target.id), 200))
+          .then (() => PWGen_Options_Load());             
+        }, error => console.log(`Error: ${error}`));       
+      e.preventDefault();
+    });
+
     var i;
-    var optionen = document.getElementsByClassName("PWGenOptionsInput");    
+    var optionen = document.getElementsByClassName("PWGen_Optionen");    
     for (i = 0; i < optionen.length; i++) {                                                           
       getID(optionen[i].id).addEventListener("change", function(e){
-        var c;
-        var defaultSettings = {};
-            defaultSettings.Options = {};
-        var inputs = document.getElementsByClassName("PWGenOptionsInput");                         // Listener für die Optionsfelder
-        for (c = 0; c < inputs.length; c++) {
-          defaultSettings.Options[inputs[c].id] = getID(inputs[c].id).value;
-        }
-        browser.storage.local.set(defaultSettings)
-        .then (() => setTimeout(() => setStatus(e.target.id), 200));
-        PWGen_CheckAnsicht();
+        browser.storage.local.get()
+          .then(Speicher => {
+            var User = getID("PWGen_BenutzerAuswahl").value;
+            Speicher.AktuellerUser = User;
+            Speicher.User[User].Optionen.Aussehen.MarkerFarbe = getID("PWGen_MarkerFarbe").value;
+            Speicher.User[User].Optionen.Aussehen.MarkerTyp = getID("PWGen_MarkerTyp").value;
+            Speicher.User[User].Optionen.Aussehen.MarkerGrafik = getID("PWGen_MarkerGrafik").value;
+            Speicher.User[User].Optionen.Aussehen.MarkerPosition = getID("PWGen_MarkerPosition").value;
+            
+
+            Speicher.User[User].Optionen.Benutzer.HauptpasswortAbfrage = getID("PWGen_HauptpasswortAbfrage").value;
+
+            Speicher.User[User].Optionen.Verhalten.MarkerSetzen = getID("PWGen_MarkerSetzen").value;
+            Speicher.User[User].Optionen.Verhalten.ButtonSetzen = getID("PWGen_ButtonSetzen").value;
+            Speicher.User[User].Optionen.Verhalten.MenuKlick = getID("PWGen_MenuKlick").value;
+            Speicher.User[User].Optionen.Verhalten.OptionenKlick = getID("PWGen_OptionenKlick").value;
+            Speicher.User[User].Optionen.Verhalten.PasswortKlick = getID("PWGen_PasswortKlick").value;
+            Speicher.User[User].Optionen.Verhalten.OptionenHilfe = getID("PWGen_OptionenHilfe").value;
+            Speicher.User[User].Optionen.Verhalten.AutocompleteOff = getID("PWGen_AutocompleteOff").value;
+            Speicher.User[User].Optionen.Verhalten.SystemBlacklistAktiv = getID("PWGen_SystemBlacklistAktiv").value;
+            Speicher.User[User].Optionen.Verhalten.DomainImmerSpeichern = getID("PWGen_DomainImmerSpeichern").value;
+            browser.storage.local.set(Speicher)
+            .then (() => setTimeout(() => setStatus(e.target.id), 100))
+            .then (() => PWGen_CheckAnsicht());            
+          }, error => console.log(`Error: ${error}`));
         e.preventDefault();
       });
     }
 
-    
-
-    var Adresse = window.location.href; 
+    var Adresse = window.location.href;
     var Adresse_Parameter = new URL(Adresse);                
-    var Adresse_Paramater_Ziel = Adresse_Parameter.searchParams.get("ziel");                                     // auf URL-Parameter checken...
+    var Adresse_Paramater_Ziel = Adresse_Parameter.searchParams.get("ziel");                      // auf URL-Parameter checken...
     if (Adresse_Paramater_Ziel) {getID("tabs"+Adresse_Paramater_Ziel).click();}                   // wenn URL-Parameter "Ziel" dann direkt laden
-    else {getID("tabsKopfInfo").click();}
+    else {getID("tabsKopfBenutzer").click();}
     var t = setTimeout(function(){
       PWGen_CheckAnsicht(); 
     }, 50);
@@ -106,8 +161,17 @@
 
   // Markeroptionen, Profioptionen etc nur einblenden wenn sie auch aktiv sein sollen 
   function PWGen_CheckAnsicht() {
+    
+    if (getID("PWGen_HauptpasswortAbfrageSpeichern").value != getID("PWGen_HauptpasswortAbfrageWiederholen").value) {
+      getID("PWGen_HauptpasswortAbfrageSpeichern").style.background = "red";
+      getID("PWGen_HauptpasswortAbfrageWiederholen").style.background = "red";      
+    }
+    else {
+      getID("PWGen_HauptpasswortAbfrageSpeichern").style.background = "";
+      getID("PWGen_HauptpasswortAbfrageWiederholen").style.background = "";      
+    } 
 
-    if (getID("PWGenOptions_Einstellungen_InputHilfeaktiv").value == "true"){
+    if (getID("PWGen_OptionenHilfe").value == "true"){
       var y = document.querySelectorAll("td.Schalterhilfe");                        // Hilfe-System aktiv
       for (var i = 0; i < y.length; i++) {
         y[i].style.display="table-cell";
@@ -120,53 +184,25 @@
       };
     };                  
 
-    if (getID("PWGenOptions_Einstellungen_BenutzerMultipleJaNein").value == "true") {                                              // wenn multiple Benutzer, dann...
-      getID("PWGenOptions_Einstellungen_BenutzerDatenMultiplerText").innerHTML = " des Benutzers " + getID("PWGenOptions_Einstellungen_BenutzerAuswahl").value;                    // - den Infotext zu den gespeicherten Daten anpassen
-      var y = document.querySelectorAll("tr.PWGen_MultipleBenutzer");
-      for (var i = 0; i < y.length; i++) {                                        // - die Tabellenzeilen einblenden
-        y[i].style.display="table-row";        
-      }
-    }
-    else {                                                                        // ansonsten den Infotext und die Zeilen ausblenden    
-      getID("PWGenOptions_Einstellungen_BenutzerDatenMultiplerText").innerHTML = "";
-      var y = document.querySelectorAll("tr.PWGen_MultipleBenutzer");
-      for (var i = 0; i < y.length; i++) {
-        y[i].style.display="none";        
-      }
-    };
-    
-    
-    if (getID("PWGenOptions_Einstellungen_InputProfiEinstellungen").value == "true"){
-      var y = document.querySelectorAll("tr.PWGen_Profioptionen");                        // Profi-Optionen aktiv
-      for (var i = 0; i < y.length; i++) {
-        y[i].style.display="table-row";
-      };        
-    }
-    else {
-      var y = document.querySelectorAll("tr.PWGen_Profioptionen");                        // Profi-Optionen inaktiv
-      for (var i = 0; i < y.length; i++) {
-        y[i].style.display="none";
-      };
-    };                  
-    if (getID("PWGenOptions_Einstellungen_InputMarkerAktiv").value == "true"){
+    if (getID("PWGen_MarkerSetzen").value == "true"){
       var y = document.querySelectorAll("tr.PWGen_Markeroptionen");                        // Marker aktiv
       for (var i = 0; i < y.length; i++) {
         y[i].style.display="table-row";
       };      
-      if (getID("PWGenOptions_Einstellungen_InputMarkerEigeneGrafik").value) {
-        getID("PWGenOptions_Einstellungen_InputMarkerEigeneGrafikMuster").innerHTML = "<br/>Es wurde folgende Grafik hinterlegt: <img src='" + getID("PWGenOptions_Einstellungen_InputMarkerEigeneGrafik").value + "' height='20px' width='20px'>";
+      if (getID("PWGen_MarkerGrafik").value) {
+        getID("PWGenOptions_Einstellungen_InputMarkerEigeneGrafikMuster").innerHTML = "<br/>Es wurde folgende Grafik hinterlegt: <img src='" + getID("PWGen_MarkerGrafik").value + "' height='20px' width='20px'>";
       }
       else {getID("PWGenOptions_Einstellungen_InputMarkerEigeneGrafikMuster").innerHTML = ""}
       
-      getID("MarkerMuster1").src = "../../icons/marker" + getID("PWGenOptions_Einstellungen_InputMarkerTyp").value + "_" + getID("PWGenOptions_Einstellungen_InputMarkerFarbe").value + ".svg";
-      getID("MarkerMuster2").src = "../../icons/marker" + getID("PWGenOptions_Einstellungen_InputMarkerTyp").value + "_" + getID("PWGenOptions_Einstellungen_InputMarkerFarbe").value + ".svg";
-      getID("Marker1Muster").src = "../../icons/marker1_" + getID("PWGenOptions_Einstellungen_InputMarkerFarbe").value + ".svg";
-      getID("Marker2Muster").src = "../../icons/marker2_" + getID("PWGenOptions_Einstellungen_InputMarkerFarbe").value + ".svg";
-      getID("Marker3Muster").src = "../../icons/marker3_" + getID("PWGenOptions_Einstellungen_InputMarkerFarbe").value + ".svg";
-      getID("Marker4Muster").src = "../../icons/marker4_" + getID("PWGenOptions_Einstellungen_InputMarkerFarbe").value + ".svg";
-      getID("Marker5Muster").src = "../../icons/marker5_" + getID("PWGenOptions_Einstellungen_InputMarkerFarbe").value + ".svg";
-            
+      getID("MarkerMuster1").src = "../../icons/marker" + getID("PWGen_MarkerTyp").value + "_" + getID("PWGen_MarkerFarbe").value + ".svg";
+      getID("MarkerMuster2").src = "../../icons/marker" + getID("PWGen_MarkerTyp").value + "_" + getID("PWGen_MarkerFarbe").value + ".svg";
+      getID("Marker1Muster").src = "../../icons/marker1_" + getID("PWGen_MarkerFarbe").value + ".svg";
+      getID("Marker2Muster").src = "../../icons/marker2_" + getID("PWGen_MarkerFarbe").value + ".svg";
+      getID("Marker3Muster").src = "../../icons/marker3_" + getID("PWGen_MarkerFarbe").value + ".svg";
+      getID("Marker4Muster").src = "../../icons/marker4_" + getID("PWGen_MarkerFarbe").value + ".svg";
+      getID("Marker5Muster").src = "../../icons/marker5_" + getID("PWGen_MarkerFarbe").value + ".svg";             
     }
+    
     else {
       var y = document.querySelectorAll('tr.PWGen_Markeroptionen');                        // Marker inaktiv
       for (var i = 0; i < y.length; i++) {
@@ -174,7 +210,7 @@
       };
     };                  
 
-    if (getID("PWGenOptions_Einstellungen_InputMasterpasswort").value == "2"){
+    if (getID("PWGen_HauptpasswortAbfrage").value == "2"){
       var y = document.querySelectorAll('tr.PWGen_Masterpasswort_Vorgabe');                        // Master-Passwort speichern ja
       for (var i = 0; i < y.length; i++) {
         y[i].style.display='table-row';

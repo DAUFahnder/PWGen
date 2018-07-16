@@ -2,9 +2,16 @@ body {
   overflow-y: scroll;
   clear: both;
   padding: 0px;
-  background-color:rgb(240,240,240);
+  background-color:rgb(235,235,235);
 }
-
+#PWGenOptionenLogo {
+  font-size: 40%;
+}
+#PWGen_Version {
+  display: block;
+  margin-top: -4px;
+  font-weight: bold;
+}
 input:disabled {
   background: silver;
 }

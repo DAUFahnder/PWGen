@@ -1,36 +1,99 @@
 
+const VERSION = "0.1";
+const STATUS = "pre-alpha";
+const DATUM = "16. Juli 2018"
 const GO = browser.storage.local.get();
-GO.then(Start, onError);
+GO.then(Start, onError);               
 
 function Start(cfg) {
-  if (cfg.Setup) {console.log ("Neustart")}
-  else {                                                                        // Start-Config nur laden wenn noch keine Config vorhanden...
-  var PWG_cfg = {};
-      PWG_cfg.Options = {};
-      PWG_cfg.Options.PWGenOptions_Einstellungen_InputMarkerFarbe = "black";
-      PWG_cfg.Options.PWGenOptions_Einstellungen_ProfioptionAutospeichern = "true";
-      PWG_cfg.Options.PWGenOptions_Einstellungen_InputMarkerPasswortklick = "Left";
-      PWG_cfg.Options.PWGenOptions_Einstellungen_InputMarkerMenuklick = "altLeft";
-      PWG_cfg.Options.PWGenOptions_Einstellungen_InputMarkerOptionsklick = "ctrlLeft";
-      PWG_cfg.Options.PWGenOptions_Einstellungen_InputAutocomplete = "true";
-      PWG_cfg.Multiuser = "false";      
-      PWG_cfg.PWGenUser = "PWGen";
+
+    console.log(cfg);  
+
+  if (cfg.System) {    
+    console.log ("Neustart");
+  }
+  else {                                                                        
+    var cfg = {};
       
- 
+      cfg.AktuellerUser = "PWGen";
+      
+      cfg.System = {};
+      cfg.System.Datum = DATUM;
+      cfg.System.Status = STATUS;      
+      cfg.System.Version = VERSION;
+      cfg.System.Blacklist = {};
+      
+      cfg.User = {};
+      cfg.User.PWGen = {};                                          // Standard-Nutzer...
+      cfg.User.PWGen.Usermodus = 3;
+      
+      cfg.User.PWGen.Domains = {};                                  // gespeicherte Zugangs-Daten des Nutzers      
+      
+      cfg.User.PWGen.Optionen = {};      
+      cfg.User.PWGen.Optionen.Aussehen = {};                         
+      cfg.User.PWGen.Optionen.Aussehen.MarkerFarbe = "pink";
+      cfg.User.PWGen.Optionen.Aussehen.MarkerTyp = "1";
+      cfg.User.PWGen.Optionen.Aussehen.MarkerGrafik = "";
+      cfg.User.PWGen.Optionen.Aussehen.MarkerPosition = "inside_right";
             
-      PWG_cfg.DomainConfigs = {};
-      PWG_cfg.Blacklist = {};
-      PWG_cfg.Blacklist.System = {};
-      PWG_cfg.Blacklist.User = {};
-      PWG_cfg.Whitelist = {};
-      PWG_cfg.Setup = true;
-      PWG_cfg.MasterpasswortAbfrage = "0";
-      browser.storage.local.set(PWG_cfg);
-      browser.runtime.openOptionsPage();  
+
+      cfg.User.PWGen.Optionen.Benutzer = {};                                
+      cfg.User.PWGen.Optionen.Benutzer.HauptpasswortAbfrage = "0";
+      cfg.User.PWGen.Optionen.Benutzer.Hauptpasswort = "PWGen";     
+      cfg.User.PWGen.Optionen.Benutzer.Anzeigename = "PWgen Default";      
+
+      cfg.User.PWGen.Optionen.Verhalten = {};
+      cfg.User.PWGen.Optionen.Verhalten.MarkerSetzen = "true";
+      cfg.User.PWGen.Optionen.Verhalten.ButtonSetzen = "true";
+      cfg.User.PWGen.Optionen.Verhalten.MenuKlick = "altRight";
+      cfg.User.PWGen.Optionen.Verhalten.OptionenKlick = "Middle";
+      cfg.User.PWGen.Optionen.Verhalten.PasswortKlick = "Left";
+      cfg.User.PWGen.Optionen.Verhalten.OptionenHilfe = "true";
+      cfg.User.PWGen.Optionen.Verhalten.AutocompleteOff = "true";
+      cfg.User.PWGen.Optionen.Verhalten.SystemBlacklistAktiv = "true";
+      cfg.User.PWGen.Optionen.Verhalten.UserWhitelist = {};
+      cfg.User.PWGen.Optionen.Verhalten.UserBlacklist = {};
+      cfg.User.PWGen.Optionen.Verhalten.DomainImmerSpeichern = "true"; 
+      
+      
+      
+      cfg.User.Test = {};                                         
+      cfg.User.Test.Usermodus = 3;
+      
+      cfg.User.Test.Domains = {};                                  
+      
+      cfg.User.Test.Optionen = {};      
+      cfg.User.Test.Optionen.Aussehen = {};                         
+      cfg.User.Test.Optionen.Aussehen.MarkerFarbe = "red";
+      cfg.User.Test.Optionen.Aussehen.MarkerTyp = "3";
+      cfg.User.Test.Optionen.Aussehen.MarkerGrafik = "";
+      cfg.User.Test.Optionen.Aussehen.MarkerPosition = "inside_left";
+            
+
+      cfg.User.Test.Optionen.Benutzer = {};                                
+      cfg.User.Test.Optionen.Benutzer.HauptpasswortAbfrage = "1";
+      cfg.User.Test.Optionen.Benutzer.Hauptpasswort = "PWGen";     
+      cfg.User.Test.Optionen.Benutzer.Anzeigename = "TestTest";      
+
+      cfg.User.Test.Optionen.Verhalten = {};
+      cfg.User.Test.Optionen.Verhalten.MarkerSetzen = "true";
+      cfg.User.Test.Optionen.Verhalten.ButtonSetzen = "false";
+      cfg.User.Test.Optionen.Verhalten.MenuKlick = "altLeft";
+      cfg.User.Test.Optionen.Verhalten.OptionenKlick = "Middle";
+      cfg.User.Test.Optionen.Verhalten.PasswortKlick = "Left";
+      cfg.User.Test.Optionen.Verhalten.OptionenHilfe = "false";
+      cfg.User.Test.Optionen.Verhalten.AutocompleteOff = "false";
+      cfg.User.Test.Optionen.Verhalten.SystemBlacklistAktiv = "false";
+      cfg.User.Test.Optionen.Verhalten.UserWhitelist = {};
+      cfg.User.Test.Optionen.Verhalten.UserBlacklist = {};
+      cfg.User.Test.Optionen.Verhalten.DomainImmerSpeichern = "false";       
+                 
+      
+      browser.storage.local.set(cfg);
+      // browser.runtime.openOptionsPage();  
       console.log ("Erstkonfiguration komplett");
   }; 
   browser.tabs.onActivated.addListener(PWGen_Background_Init);
-  console.log ("Beta, starte Optionen auch bei Neustart!");
   browser.runtime.openOptionsPage();
   PWGen_Background_Init();
 }         
